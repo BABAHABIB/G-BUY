@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>G-BUY</title>
+        <h:outputStylesheet name="style.css" library="css"></h:outputStylesheet>
+        <h:outputScript name="jquery-1.7.2.min.js" library="js"></h:outputScript>
+        <h:outputScript name="cufon/cufon-yui.js" library="js"></h:outputScript>
+        <h:outputScript name="cufon/open-sans-latin.js" library="js"></h:outputScript>
+        <h:outputScript name="common.js" library="js"></h:outputScript>  
+    </h:head>
+
+    <h:body class="hideall">
+
+        <!-- start topbar -->
+        <div class="topbar">
+            <ui:insert name="topbar">
+                <ui:include src="topbar.xhtml"> </ui:include>
+            </ui:insert>
+        </div>
+        <!-- end topbar --> 
+
+        <!-- start header -->
+        <div id="header">
+            <ui:insert name="header">
+                <ui:include src="header.xhtml"></ui:include>
+            </ui:insert>
+        </div>
+        <!-- end header --> 
+
+        <!-- start container -->
+        <div id="container"> 
+            <!-- start showcase -->
+            <div id="showcase">
+                <ui:insert name="showcase"></ui:insert>
+            </div>
+            <!-- end showcase -->
+
+            <!-- start box -->
+            <div class="box"> 
+                <!-- start leftcol -->
+                <div id="leftcol" > 
+                    <ui:insert name="leftcol">
+                    </ui:insert>
+                </div>
+                <!-- end leftcol -->
+
+                <!-- start rightcol -->
+                <div id="rightcol"> 
+                    <ui:insert name="rightcol">
+                        <ui:include src="rightcol.xhtml"></ui:include>
+                    </ui:insert>
+                </div>
+                <!-- end rightcol -->
+                <div class="clear"></div>
+            </div>
+            <!-- end box --> 
+        </div>
+        <!-- end container --> 
+
+
+        <!-- start footer -->
+        <div id="footer"> 
+            <ui:insert name="footer">
+                <ui:include src="footer.xhtml"></ui:include>
+            </ui:insert>
+        </div>
+        <!-- end footer --> 
+        <!-- back to top link -->
+        <div id="top-container"> <a id="top-link"></a> </div>
+        <!-- end back to top link --> 
+
+        <script type="text/javascript" src="js/common_footer.js"></script>
+
+    </h:body>
+</html>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="box"> 
+               
+                <!-- logo -->
+                <div id="logo"> 
+                    <a href="index.html" title="Linear">
+                        <h:graphicImage library="images" name="logo.png" width="300" height="100" alt="G-BUY" />
+                    </a>
+                </div>
+                <!-- logo --> 
+                
+                <!-- start header right -->
+                <div id="header-right"> 
+                   
+                    <!-- Parrinage -->
+                    <div class="cart">
+                        <h6><a href="cart-page.html">Parrainer et Gagner!</a></h6>
+                        <div class="cart-box">
+                            <span class="item"><a>10 Euros</a></span>
+                        </div>
+                    </div>
+                    <!-- Parrinage --> 
+                    
+                    <!-- feature -->
+                    <div class="feature">
+                        <span class="heading">
+                            <h:graphicImage library="images" name="ico_man.png" width="15" height="15" alt="man" />
+                            <a href="account-page.html">Votre Compte</a>
+                        </span> 
+                        <span>
+                            <a href="register-page.html" title="Create an Account">Crée un compte</a>
+                            ou <a href="login-page.html" title="Log-in">Connectez vous</a>
+                        </span> 
+                    </div>
+                    
+                    <div class="feature number">
+                        <span class="heading">
+                            <h:graphicImage library="images" name="ico_phone.png" width="15" height="15" alt="phone" />
+                            +39 234 3567
+                        </span>
+                        <span>Call Us <em>Lundi - Samedi</em>: 8:30 am - 6:00 pm</span> 
+                    </div>
+                    <!-- feature --> 
+                
+                </div>
+                <!-- end header right -->
+                
+                <div class="clear"></div>
+                
+                <!-- start menu bar -->
+                <div id="menu-bar"> 
+                    <!-- navigation -->
+                    <div id="navigation">
+                        <ul>
+                            <li><a href="index.html" title="" class="active">Home</a></li>
+                            <li><a href="category-page.html">Office</a></li>
+                            <li><a href="category-page.html" title="">Kitchen</a>
+                                <ul class="sub">
+                                    <li class="space"></li>
+                                    <li>
+                                        <h3>INSIDE KITCHEN</h3>
+                                        <ul>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Cabinets</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Taps &amp; Sinks</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Panels</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html"><span>Appliances</span></a>
+                                                <ul class="sub2">
+                                                    <li class="space"></li>
+                                                    <li><a href="category-page.html">Fridges</a></li>
+                                                    <li><a href="category-page.html">Ovens</a></li>
+                                                    <li><a href="category-page.html">Dishwashers</a></li>
+                                                    <li><a href="category-page.html">Cookers</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Islands &amp; Trolleys</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Lighting</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Knobs</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Worktops</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <h3>KITCHEN BRANDS</h3>
+                                        <ul>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Nutid</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Fintorp</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Berloni</a></li>
+                                            <li><span class="bullet">&#8226;</span><a href="category-page.html">Bygel</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><a href="category-page.html" title="">Children</a></li>
+                            <li><a href="category-page.html" title="">Living Room</a></li>
+                            <li><a href="category-page.html" title="">Outdoor</a>
+                                <ul class="sub2">
+                                    <li class="space"></li>
+                                    <li><a href="category-page.html">Storage</a></li>
+                                    <li><a href="category-page.html">Relax</a></li>
+                                    <li><a href="category-page.html">Sunshields</a></li>
+                                    <li><a href="category-page.html">Plant pots</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="category-page.html" title="">Decoration</a></li>
+                        </ul>
+                    </div>
+                    <!-- navigation --> 
+                    
+                    <!-- search -->
+                    <div class="search">
+                        <form action="">
+                            <div>
+                                <input type="text" value="Search..." name="field" class="input" onfocus="if(this.value == 'Search...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search...'; }" />
+                            </div>
+                            <div>
+                                <input type="submit" value="" name="button" class="button" />
+                            </div>
+                        </form>
+                    </div>
+                    <!-- search --> 
+                    
+                </div>
+                <!-- end menu bar --> 
+            </div>
+        </ui:composition>
+    </body>
+</html>

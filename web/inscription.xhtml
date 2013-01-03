@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Inscription</title>
+    </head>
+    <h:body>
+        <ui:composition template="/template/commun.xhtml">
+            <ui:define name="leftcol">
+                <div class="contact">
+                    <h1 class="red">Créer un compte</h1>
+                    <center>
+                        <h5>Vous avez déja un compte? <span><a href="#"> Connectez vous</a></span></h5>
+                    </center>
+                    <center>
+                        <h:outputText value="#{register.message}" />
+                    </center>
+
+                    <h:form>
+                        <table>
+                            <tr>
+                                <td><h3> Email :</h3></td>
+                                <td> <h:inputText value="#{register.user.email}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Mot de passe :</h3></td>
+                                <td> <h:inputSecret value="#{register.user.password}" /></td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Confirmer mot de passe :</h3></td>
+                                <td> <h:inputSecret value="#{register.password}"/> </td>
+                            </tr>
+                            <tr>
+                                <td><h3> Nom :</h3></td>
+                                <td> <h:inputText value="#{register.user.nom}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Prenom :</h3></td>
+                                <td> <h:inputText value="#{register.user.prenom}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Adresse :</h3></td>
+                                <td> <h:inputText value="#{register.user.adresse}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Ville :</h3></td>
+                                <td> <h:inputText value="#{register.user.ville}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Pays :</h3></td>
+                                <td> <h:inputText value="#{register.user.pays}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Code postal :</h3></td>
+                                <td> <h:inputText value="#{register.user.codePostale}" /></td> 
+                            </tr>
+                            <tr>
+                                <td><h3> Date Naissance :</h3></td>
+                                <td> <h:inputText value="#{register.dateNaissance}" /> </td> 
+                            </tr>
+                            <tr>
+                                <td><h5> J'ai lu et j'accepte <a href="#">les conditions</a> : </h5></td>
+                                <td></td>
+                            </tr>
+
+                            <tr>
+                                <td>  </td>
+                                <td> <h:commandButton value="Créer compte" action="#{register.adduser()}" /> </td> 
+                            </tr>
+                        </table>
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>

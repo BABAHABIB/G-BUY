@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>TODO supply a title</title>
+    </head>
+    <body>
+        <ui:composition>
+
+            <!-- start subnav -->
+            <div class="subnav rightcol-block">    
+                <h4 class="red">Categories</h4>
+                <ul class="sf-menu sf-vertical">
+                    <li><a class="subnav-link" href="category-page.html" title=""><strong>Children Room</strong> (2)</a></li>
+                    <li><a href="category-page.html" title="" class="subnav-link"><span><strong>Outdoor &amp; Garden</strong> (11)</span></a>
+                        <ul class="hoverable">
+                            <li><a href="category-page.html" title="">Relax</a></li>
+                            <li><a href="category-page.html" title="">Storage</a></li>
+                            <li><a href="category-page.html" title="">Plant pots</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- end subnav --> 
+
+            <!-- start offer block -->
+            <div class="offer common rightcol-block">
+                <h4 class="red">Offres Speciales</h4>
+                <ul>
+                    <li class="first">
+                        <div class="imgb">
+                            <a href="product-page.html" class="fadeable">
+                                <h:graphicImage library="images" name="prodotto-4-4.jpg" width="54" height="54" alt="offer" />
+                            </a>
+                        </div>
+                        <div class="txtb">
+                            <span class="title">
+                                <a href="product-page.html">Ullamcorper Ultrices</a>
+                            </span>
+                            <div class="clear"></div>
+                            <span class="price">$98,00</span></div>
+                        <div class="clear"></div>
+                    </li>
+                    <li>
+                        <div class="imgb">
+                            <a href="product-page.html" class="fadeable">
+                                <h:graphicImage library="images" name="prodotto-1-1.jpg" width="54" height="54" alt="offer" />
+                            </a>
+                        </div>
+                        <div class="txtb">
+                            <span class="title">
+                                <a href="product-page.html">Auctor Lapsum</a></span>
+                            <div class="clear"></div>
+                            <span class="price">$246,45</span></div>
+                        <div class="clear"></div>
+                    </li>
+                </ul>
+            </div>
+            <!-- end offer block -->
+
+            <!-- banner -->
+            <div class="banner common rightcol-block">
+                <div class="imgb">
+                    <a href="#">
+                        <h:graphicImage library="images" name="img_banner.jpg" width="142" height="134" alt="banner" />
+                    </a>
+                </div>
+            </div>
+            <!-- banner -->
+
+            <!-- widget -->
+            <div class="widget rightcol-block">
+                <h4 class="red">Qui somme nous?</h4>
+                <p>
+                    Pellentesque lacus urna, pellentesque 
+                    <strong> vehicula adipiscing</strong>
+                    scelerisque a eros. Mauris id tortor et vitae
+                    velit auctor convallis nec non metus.
+                </p>
+            </div>
+            <!-- widget -->             
+        </ui:composition>
+    </body>
+</html>

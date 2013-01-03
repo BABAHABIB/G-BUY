@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <head>
+        <title>Topbar</title>
+    </head>
+    <body>
+        <ui:composition>
+            <div class="box"> 
+               
+                <!-- start topnav -->
+                <div class="topnav">
+                    <ul class="lava">
+                        <li><a href="account-page.html" class="active">My Account</a></li>
+                        <li class="info"><a><span>Information</span></a>
+                            <ul>
+                                <li><a href="about-page.html">About Us</a></li>
+                                <li><a href="page-full-elements.html">Delivery Information</a></li>
+                                <li><a href="page-full-elements.html">Privacy Policy</a></li>
+                                <li><a href="page-full-elements.html">Terms and Conditions</a></li>
+                                <li><a href="contact-page.html" title="">Contact Us</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="contact-page.html">Support</a></li>
+                    </ul>
+                </div>
+                <!-- end topnav --> 
+                
+                <!-- topbar right -->
+                <div class="tb-right">
+                    <div class="language">
+                        <ui:insert name="topbar-right">
+                            <ul>
+                                <li class="active">FR <span><h:graphicImage library="images" name="flag_fr.png" width="16" height="11" alt="Francais" /></span></li>
+                                <li><a href="#" title="">EN </a> <span><h:graphicImage library="images" name="flag_en.png" width="16" height="11" alt="English" /></span></li>
+                                <li><a href="#" title="">AR</a> <span><h:graphicImage library="images" name="flag_ar.png" width="16" height="11" alt="Arabic" /></span></li>
+                            </ul>
+                        </ui:insert>
+                    </div>
+
+                </div>
+                <!-- topbar right -->
+                
+            </div>
+        </ui:composition>
+    </body>
+</html>
