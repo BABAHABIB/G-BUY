@@ -11,6 +11,12 @@
                 <div class="contact">
                     <h1 class="red">Créer un compte</h1>
                     <h5><span>Avez vous déja un compte avec nous ? <a href="#">Connectez vous</a>.</span></h5>
+                  
+                    <div class="info-box-content">
+                        <div class="info-box warning">
+                            <p><h:outputText value="#{register.message}" /> </p>
+                        </div>
+                    </div>  
                     <br/>
                     <div class="accordin-block step2">
                         <h:form method="post">
@@ -57,19 +63,25 @@
                                     <h:inputText value="#{register.user.pays}"  id="Pays" class="input" />
                                     <div><h:message for="Pays" style="color:red" /></div>
                                 </div>
-                              
+
                                 <div class="row1">
                                     <label for="PostCode" class="title">Code Postal</label>
                                     <h:inputText value="#{register.user.codePostale}"  id="PostCode" class="input" />
                                 </div>
-                                
-                                   <div class="row1">
+
+                                <div class="row1">
                                     <label for="date" class="title">Date de Naissance</label>
                                     <h:inputText value="#{register.user.dateNaissance}" id="date"  class="input" label="Date Naissance">
                                         <f:convertDateTime pattern="d-M-yyyy" />
                                     </h:inputText>
                                     <div><h:message for="date" style="color:red" /></div>
-                                </div> 
+                                </div>
+                                <div class="row1">
+                                    <label for="parrain" class="title">Parrain Email</label>
+                                    <h:inputText value="#{register.parrainEmail}" id="parrain"  class="input" >
+                                    </h:inputText>
+                                    <div><h:message for="date" style="color:red" /></div>
+                                </div>
                             </div>
                             <div>
                                 <label for="check" class="select-check">

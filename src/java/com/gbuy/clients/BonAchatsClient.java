@@ -9,11 +9,11 @@ import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
 
 /**
- * Jersey REST client generated for REST resource:UtilisateurFacadeREST
- * [utilisateurs]<br>
+ * Jersey REST client generated for REST resource:BonAchatFacadeREST
+ * [bonachats]<br>
  *  USAGE:
  * <pre>
- *        UtilisateurClient client = new UtilisateurClient();
+ *        BonAchatsClient client = new BonAchatsClient();
  *        Object response = client.XXX(...);
  *        // do whatever with response
  *        client.close();
@@ -21,15 +21,15 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Anas
  */
-public class UtilisateurClient {
+public class BonAchatsClient {
     private WebResource webResource;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/G-BUY-RestFull/webresources";
 
-    public UtilisateurClient() {
+    public BonAchatsClient() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();
         client = Client.create(config);
-        webResource = client.resource(BASE_URI).path("utilisateurs");
+        webResource = client.resource(BASE_URI).path("bonachats");
     }
 
     public void remove(String id) throws UniformInterfaceException {
@@ -40,18 +40,6 @@ public class UtilisateurClient {
         WebResource resource = webResource;
         resource = resource.path("count");
         return resource.accept(javax.ws.rs.core.MediaType.TEXT_PLAIN).get(String.class);
-    }
-
-    public <T> T findByEmail_XML(Class<T> responseType, String email) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        resource = resource.path(java.text.MessageFormat.format("utilisateur/{0}", new Object[]{email}));
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
-    }
-
-    public <T> T findByEmail_JSON(Class<T> responseType, String email) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        resource = resource.path(java.text.MessageFormat.format("utilisateur/{0}", new Object[]{email}));
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
     public <T> T findAll_XML(Class<T> responseType) throws UniformInterfaceException {
@@ -72,48 +60,24 @@ public class UtilisateurClient {
         webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).put(requestEntity);
     }
 
-    public <T> T findByParrainId_XML(Class<T> responseType, String id) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        resource = resource.path(java.text.MessageFormat.format("parrainer/{0}", new Object[]{id}));
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
-    }
-
-    public <T> T findByParrainId_JSON(Class<T> responseType, String id) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        resource = resource.path(java.text.MessageFormat.format("parrainer/{0}", new Object[]{id}));
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
-    }
-
-    public <T> T findByEmailPassword_XML(Class<T> responseType, String email, String password) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        if (email != null) {
-            resource = resource.queryParam("email", email);
-        }
-        if (password != null) {
-            resource = resource.queryParam("password", password);
-        }
-        resource = resource.path("verifieer");
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
-    }
-
-    public <T> T findByEmailPassword_JSON(Class<T> responseType, String email, String password) throws UniformInterfaceException {
-        WebResource resource = webResource;
-        if (email != null) {
-            resource = resource.queryParam("email", email);
-        }
-        if (password != null) {
-            resource = resource.queryParam("password", password);
-        }
-        resource = resource.path("verifieer");
-        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
-    }
-
     public void create_XML(Object requestEntity) throws UniformInterfaceException {
         webResource.type(javax.ws.rs.core.MediaType.APPLICATION_XML).post(requestEntity);
     }
 
     public void create_JSON(Object requestEntity) throws UniformInterfaceException {
         webResource.type(javax.ws.rs.core.MediaType.APPLICATION_JSON).post(requestEntity);
+    }
+
+    public <T> T findByUserid_XML(Class<T> responseType, String idutilisateur) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("user/{0}", new Object[]{idutilisateur}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
+
+    public <T> T findByUserid_JSON(Class<T> responseType, String idutilisateur) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("user/{0}", new Object[]{idutilisateur}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
     public <T> T findRange_XML(Class<T> responseType, String from, String to) throws UniformInterfaceException {
