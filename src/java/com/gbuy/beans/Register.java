@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.gbuy.beans;
 
 import com.gbuy.clients.UtilisateurClient;
@@ -15,44 +11,30 @@ import javax.faces.bean.SessionScoped;
  *
  * @author Anas
  */
-@ManagedBean(name="register")
+@ManagedBean(name = "register")
 @RequestScoped
 public class Register {
-    
-    private Utilisateur user;
     private String password;
-    private String dateNaissance;
-    private UtilisateurClient client;
-    private String message;
+    private boolean conditions;
+    private Utilisateur user = new Utilisateur();
+    private UtilisateurClient client = new UtilisateurClient();
 
-    public Register() {
-        user = new Utilisateur();
-        client = new UtilisateurClient();
-        message = "";
+
+    public String adduser() {
+        if (conditions) {
+            if (!user.getEmail().isEmpty() && !user.getNom().isEmpty()
+                    && !user.getPrenom().isEmpty() && !user.getAdresse().isEmpty()
+                    && !user.getVille().isEmpty() && !user.getPays().isEmpty()) {
+                if (user.getPassword().equals(password)) {
+                    Gson gson = new Gson();
+                    client.create_JSON(gson.toJson(user));
+                    return "index.xhtml";
+                }
+            }
+        }
+        return null;
     }
 
-    public String adduser(){
-         if(!user.getEmail().isEmpty() && !user.getNom().isEmpty() 
-                 && !user.getPrenom().isEmpty() && !user.getAdresse().isEmpty()
-                 && !user.getVille().isEmpty() && !user.getPays().isEmpty())
-         {
-             if(user.getPassword().equals(password))
-             {
-                 Gson gson = new Gson();
-                 client.create_JSON(gson.toJson(user));
-                 return "index.xhtml";
-             }
-             else 
-             {
-                 message = "les mots de passe ne sont pa identique";
-             }
-         }
-         else{
-             message = "Il faut remplire tous les champs";
-         }    
-         return null;
-    }
-    
     public Utilisateur getUser() {
         return user;
     }
@@ -69,20 +51,11 @@ public class Register {
         this.password = password;
     }
 
-    public String getDateNaissance() {
-        return dateNaissance;
+    public boolean isConditions() {
+        return conditions;
     }
 
-    public void setDateNaissance(String dateNaissance) {
-        this.dateNaissance = dateNaissance;
+    public void setConditions(boolean conditions) {
+        this.conditions = conditions;
     }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-    
 }
