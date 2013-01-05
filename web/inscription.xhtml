@@ -3,18 +3,21 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
+    <h:head></h:head>
     <h:body>
         <ui:composition template="/template/commun.xhtml" >
             <ui:define name="leftcol">
                 <!-- block -->
                 <div class="contact">
                     <h1 class="red">Créer un compte</h1>
-                    <h5><span>Avez vous déja un compte avec nous ? <a href="#">Connectez vous</a>.</span></h5>
+                    <h5><span>Avez vous déja un compte avec nous ? <a href="login.xhtml">Connectez vous</a>.</span></h5>
                   
                     <div class="info-box-content">
                         <div class="info-box warning">
-                            <p><h:outputText value="#{register.message}" /> </p>
+                            <p>
+                                <h:outputText value="#{utilisateurBean.message}" />
+                            </p>
                         </div>
                     </div>  
                     <br/>
@@ -23,76 +26,75 @@
                             <div class="accordin-half">
                                 <div class="row1">
                                     <label for="nom" class="title">Nom<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.nom}" id="nom" class="input"  />
+                                    <p:inputText value="#{utilisateurBean.user.nom}" id="nom"  styleClass="input" />
                                     <div><h:message for="nom" style="color:red" /></div>            
                                 </div>
                                 <div class="row1">
                                     <label for="Prenom" class="title">Prenom<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.prenom}" id="Prenom" class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.prenom}" id="Prenom" styleClass="input" />
                                     <div><h:message for="Prenom" style="color:red" /></div>
                                 </div>
                                 <div class="row1">
                                     <label for="EMail" class="title">E-Mail<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.email}" id="EMail" class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.email}" id="EMail" styleClass="input" />
                                     <div><h:message for="EMail" style="color:red" /></div>
                                 </div>
                                 <div class="row1">
-                                    <label for="Password" class="title">Mot de passe<strong>*</strong></label>
-                                    <h:inputSecret value="#{register.user.password}" id="Password" class="input" />
-                                    <div><h:message for="Password" style="color:red" /></div>
+                                    <label for="pwd1" class="title">Mot de passe<strong>*</strong></label>
+                                    <p:password id="pwd1" value="#{utilisateurBean.password1}" feedback="true" inline="true" required="true" styleClass="input"/>                 
+                                    <div><h:message for="pwd1" style="color:red" /></div>
                                 </div>
                                 <div class="row1">
-                                    <label for="PasswordConfirm" class="title">Confirmation<strong>*</strong></label>
-                                    <h:inputSecret value="#{register.password}"   id="PasswordConfirm"  class="input" />
-                                    <div><h:message for="PasswordConfirm" style="color:red" /></div>
+                                    <label for="pwd2" class="title">Confirmation<strong>*</strong></label>
+                                    <p:password value="#{utilisateurBean.password2}"   id="pwd2" required="true" styleClass="input" />
+                                    <div><h:message for="pwd2" style="color:red"  /></div>
                                 </div>
                             </div>
                             <div class="accordin-half">
                                 <div class="row1">
                                     <label for="Adresse" class="title">Adresse<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.adresse}" id="Adresse"  class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.adresse}" id="Adresse"  styleClass="input" />
                                     <div><h:message for="Adresse" style="color:red" /></div>
                                 </div>
                                 <div class="row1">
                                     <label for="Ville" class="title">Ville<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.ville}"  id="Ville" class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.ville}"  id="Ville" styleClass="input" />
                                     <div><h:message for="Ville" style="color:red" /></div>
                                 </div>
                                 <div class="row1">
                                     <label for="Pays" class="title">Pays<strong>*</strong></label>
-                                    <h:inputText value="#{register.user.pays}"  id="Pays" class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.pays}"  id="Pays" styleClass="input" />
                                     <div><h:message for="Pays" style="color:red" /></div>
                                 </div>
 
                                 <div class="row1">
                                     <label for="PostCode" class="title">Code Postal</label>
-                                    <h:inputText value="#{register.user.codePostale}"  id="PostCode" class="input" />
+                                    <p:inputText value="#{utilisateurBean.user.codePostale}"  id="PostCode" styleClass="input" />
                                 </div>
 
                                 <div class="row1">
                                     <label for="date" class="title">Date de Naissance</label>
-                                    <h:inputText value="#{register.user.dateNaissance}" id="date"  class="input" label="Date Naissance">
-                                        <f:convertDateTime pattern="d-M-yyyy" />
-                                    </h:inputText>
+                                    <p:inputMask value="#{utilisateurBean.dateNaissance}" mask="99/99/9999" id="date"  styleClass="input">   
                                     <div><h:message for="date" style="color:red" /></div>
+                                    </p:inputMask>
                                 </div>
                                 <div class="row1">
                                     <label for="parrain" class="title">Parrain Email</label>
-                                    <h:inputText value="#{register.parrainEmail}" id="parrain"  class="input" >
-                                    </h:inputText>
+                                    <p:inputText value="#{utilisateurBean.parrainEmail}" id="parrain"  styleClass="input" >
+                                    </p:inputText>
                                     <div><h:message for="date" style="color:red" /></div>
                                 </div>
                             </div>
                             <div>
                                 <label for="check" class="select-check">
-                                    <h:selectBooleanCheckbox  value="#{register.conditions}" id="check" class="checkbox" />
+                                    <h:selectBooleanCheckbox  value="#{utilisateurBean.conditions}" id="check" class="checkbox" />
                                     <span class="gray">J'ai lu et j'accepte  <a href="#">les conditions</a></span></label>
                             </div>
                             <div class="clear"></div>
                             <div class="submit-review">
-                                <h:commandLink action="#{register.adduser()}" value="CREER MON COMPTE" class="sub-hover"></h:commandLink>
-                                <h:commandLink action="#{register.adduser()}" value="CREER MON COMPTE"  ></h:commandLink> 
-                            </div>
+                                <h:commandLink action="#{utilisateurBean.adduser()}" value="CREER MON COMPTE" class="sub-hover"></h:commandLink>
+                                <h:commandLink action="#{utilisateurBean.adduser()}" value="CREER MON COMPTE"  ></h:commandLink> 
+                            </div>     
                         </h:form>
                     </div>
                     <!-- block --> 

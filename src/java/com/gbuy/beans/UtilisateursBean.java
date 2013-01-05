@@ -5,24 +5,35 @@ import com.gbuy.clients.UtilisateurClient;
 import com.gbuy.entities.BonAchat;
 import com.gbuy.entities.Utilisateur;
 import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.IOException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
 
 /**
  *
  * @author Anas
  */
-@ManagedBean(name = "register")
+@ManagedBean(name = "utilisateurBean")
 @RequestScoped
-public class Register {
+public class UtilisateursBean {
 
-    private String password;
+    private String password1;
+    private String password2;
     private boolean conditions;
     private String parrainEmail;
+    private String dateNaissance;
     private Utilisateur user = new Utilisateur();
     private UtilisateurClient client = new UtilisateurClient();
     private String message = "Les champs marquer par * sont obligatoire !";
@@ -34,7 +45,7 @@ public class Register {
                     && !user.getPrenom().isEmpty() && !user.getAdresse().isEmpty()
                     && !user.getVille().isEmpty() && !user.getPays().isEmpty()) 
             {
-                if (user.getPassword().equals(password)) 
+                if (password1.equals(password2)) 
                 {
                     String response = null;
                     try {
@@ -44,6 +55,7 @@ public class Register {
                     if (response == null) 
                     {
                         Gson gson = new Gson();
+                        user.setPassword(password1);
                         client.create_JSON(gson.toJson(user));
                         if (!parrainEmail.isEmpty()) {
                             try {
@@ -77,6 +89,28 @@ public class Register {
         }else message = "Veuillez acceptez nos condictions !";
         return null;
     }
+    
+    public String login(ActionEvent event){
+        Gson gson = new Gson();
+        String response = null;
+        try {
+             response = client.findByEmailPassword_JSON(String.class, user.getEmail(), user.getPassword());
+        } catch (Exception e) {
+        }
+        if(response != null){
+            try {
+                user = gson.fromJson(response, Utilisateur.class);
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Success", " Bienvenu "+ user.getNom()));
+                FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+            } catch (IOException ex) {
+                Logger.getLogger(UtilisateursBean.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Login ou mot de passe incorrecte !", "Login ou mot de passe incorrecte !")); 
+        }
+       return null;
+    }
 
     public Utilisateur getUser() {
         return user;
@@ -86,13 +120,23 @@ public class Register {
         this.user = user;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPassword1() {
+        return password1;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword1(String password1) {
+        this.password1 = password1;
     }
+
+    public String getPassword2() {
+        return password2;
+    }
+
+    public void setPassword2(String password2) {
+        this.password2 = password2;
+    }
+
+   
 
     public boolean isConditions() {
         return conditions;
@@ -116,6 +160,14 @@ public class Register {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public String getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(String dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
     
 }

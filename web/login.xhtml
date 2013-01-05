@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head></h:head>
+    <h:body>
+        <ui:composition template="/template/commun.xhtml" >
+            <ui:define name="leftcol">
+                
+                <h1 class="red">Connectez vous</h1>
+                <div class="accordin-block step2">
+                    <h:form>
+                        
+                             <p:messages id="messages"  autoUpdate="true" closable="true" />  
+                            <div class="row1">
+                                <label for="email" class="title">Email<strong>*</strong></label>
+                                <p:inputText value="#{utilisateurBean.user.email}" validatorMessage="Entrer un email valide" id="email" styleClass="input">
+                                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                                </p:inputText>
+                            </div>
+                            <div class="clear"></div>
+                            
+                            <div class="row1">
+                                <label for="password" class="title">Mot de passe<strong>*</strong></label>
+                                <p:password value="#{utilisateurBean.user.password}" validatorMessage="Le mot de passe est vide"  id="password" styleClass="input"/>
+                            </div> 
+
+                            <div class="clear"></div>
+                            <p:commandButton value="SE CONNECTER" update="messages" actionListener="#{utilisateurBean.login}" />
+                       
+                    </h:form>
+                </div>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
