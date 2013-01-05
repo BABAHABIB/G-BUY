@@ -83,10 +83,10 @@ textarea {
 	width:100%;
 }
 .general-select .jquery-selectbox .jquery-selectbox-moreButton {
-	background: url(../images/ico_arrow5.png) no-repeat right 12px;
+	background: url("#{resource['images:ico_arrow5.png']}") no-repeat right 12px;
 }
 .general-select .jquery-selectbox.selecthover .jquery-selectbox-moreButton {
-	background: url(../images/ico_arrow5_hover.png) no-repeat right 12px;
+	background: url("#{resource['images:ico_arrow5_hover.png']}")  no-repeat right 12px;
 }
 .general-select .jquery-selectbox .jquery-selectbox-currentItem {
 	padding-left:18px;
@@ -298,11 +298,11 @@ ol.general li {
 	padding:0 0 0px 0;
 }
 ul.general.plus li {
-	background: url(../images/bg_divider.png) no-repeat left 10px;
+	background:  url("#{resource['images:bg_divider.png']}")  no-repeat left 10px;
 	padding: 0 0 0 13px;
 }
 ul.general li {
-	background:url(../images/bg_bullet.png) no-repeat left 10px;
+	background: url("#{resource['images:bg_bullet.png']}") no-repeat left 10px;
 	padding:0 0 0 13px;
 }
 blockquote {
@@ -402,11 +402,11 @@ body {
 	text-decoration:underline;
 }
 .topnav li.info span {
-	background:url(../images/ico_arrow.png) no-repeat right 6px;
+	background: url("#{resource['images:ico_arrow.png']}")  no-repeat right 6px;
 	padding:0 12px 0 0;
 }
 .topnav li.info:hover span {
-	background:url(../images/ico_arrow_hover.png) no-repeat right 6px;
+	background:url("#{resource['images:ico_arrow_hover.png']}")  no-repeat right 6px;
 }
 .topnav li.info ul li span {
 	background:none;
@@ -420,7 +420,7 @@ body {
 	padding:14px 0 0 0;
 }
 .topnav li.backLava {
-	background:url(../images/bg_red.png) repeat-x left top;
+	background: url("#{resource['images:bg_red.png']}") repeat-x left top;
 	height: 4px !important;
 	position: absolute;
 	top: 0;
@@ -490,7 +490,7 @@ body {
 }
 .jquery-selectbox .jquery-selectbox-moreButton {
 	float: right;
-	background: url(../images/ico_arrow2.png) no-repeat right 2px;
+	background: url("#{resource['images:ico_arrow2.png']}")  no-repeat right 2px;
 	height: 22px;
 	cursor: pointer;
 	width: inherit;
@@ -498,7 +498,7 @@ body {
 	position: absolute;
 }
 .jquery-selectbox.selecthover .jquery-selectbox-moreButton {
-	background: url(../images/ico_arrow2_hover.png) no-repeat right 2px;
+	background: url("#{resource['images:ico_arrow2_hover.png']}") no-repeat right 2px;
 }
 .jquery-selectbox .jquery-selectbox-item {
 	display: block;
@@ -521,12 +521,12 @@ body {
 	margin-top:1px;
 }
 .tb-right .language li.active { 
-	background:url(../images/bg_flag_top.png) bottom no-repeat;
+	background:url("#{resource['images:bg_flag_top.png']}") bottom no-repeat;
 }
 .tb-right .language li span {
 	width:16px;
 	height:11px;
-	background:url(../images/bg_flag.png) bottom no-repeat;
+	background: url("#{resource['images:bg_flag.png']}") bottom no-repeat;
 	display:block;
 	padding:3px 4px 3px 4px;
 	position:absolute;
@@ -719,7 +719,7 @@ body {
 }
 .search {
 	height:36px;
-	background-image:url(../images/ico_search.png);
+	background-image:url("#{resource['images:ico_search.png']}");
 	background-repeat: no-repeat;
 	background-position: 12px 12px;
 	overflow:hidden;
@@ -837,7 +837,7 @@ body {
 	font-size:16px;
 }
 .gallery ul li .price.sale {
-	background:url(../images/price-dot.jpg) repeat-x 0 10px;
+	background:url("#{resource['images:price-dot.jpg']}") repeat-x 0 10px;
 	margin-right:7px;
 }
 .gallery ul li .price span {
@@ -972,7 +972,7 @@ body {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat right bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat right bottom;
 }
 .jcarousel-skin-partner .jcarousel-next-horizontal:hover, .jcarousel-skin-partner .jcarousel-next-horizontal:focus, .jcarousel-skin-partner .jcarousel-next-horizontal:active {
 	background-position: right bottom;
@@ -988,7 +988,7 @@ body {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat left bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat left bottom;
 }
 .jcarousel-skin-partner .jcarousel-prev-horizontal:hover, .jcarousel-skin-partner .jcarousel-prev-horizontal:focus, .jcarousel-skin-partner .jcarousel-prev-horizontal:active {
 	background-position: left bottom;
@@ -1028,7 +1028,7 @@ body {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat right bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat right bottom;
 }
 .jcarousel-skin-featured .jcarousel-next-horizontal:hover, .jcarousel-skin-featured .jcarousel-next-horizontal:focus, .jcarousel-skin-featured .jcarousel-next-horizontal:active {
 	background-position: right bottom;
@@ -1044,7 +1044,7 @@ body {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat left bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat left bottom;
 }
 .jcarousel-skin-featured .jcarousel-prev-horizontal:hover, .jcarousel-skin-featured .jcarousel-prev-horizontal:focus, .jcarousel-skin-featured .jcarousel-prev-horizontal:active {
 	background-position: left bottom;
@@ -1086,7 +1086,7 @@ body {
 	font-weight:normal;
 }
 .subnav li span, #navigation ul li ul li span {
-	background:url(../images/ico_arrow.png) no-repeat right center;
+	background:url("#{resource['images:ico_arrow.png']}") no-repeat right center;
 	padding:0 15px 0 0;
 }
 .subnav li ul {
@@ -1095,7 +1095,7 @@ body {
 .subnav li ul li {
 	font-size:12px;
 	line-height:24px;
-	list-style-image:url(../images/li-dot.png)
+	list-style-image:url("#{resource['images:li-dot.png']}")
 }
 .common {
 	padding:44px 0;
@@ -1113,7 +1113,7 @@ body {
 .offer li, #cart-content ul li {
 	padding:22px 0 23px 0;
 	display:block;
-	background:url(../images/dottedbg.jpg) repeat-x bottom;
+	background:url("#{resource['images:dottedbg.jpg']}") repeat-x bottom;
 }
 .offer li.first, .offer li:first-child {
 	padding-top:0;
@@ -1263,7 +1263,7 @@ body {
 	padding:0 0 0 55px;
 }
 .twitter li {
-	background:url(../images/ico_coma.png) no-repeat 2px 8px;
+	background: url("#{resource['images:ico_coma.png']}") no-repeat 2px 8px;
 	padding:0 0 12px 30px;
 	line-height:26px;
 	font-style:italic;
@@ -1307,7 +1307,7 @@ body {
 #footer .list li {
 	font-size:13px;
 	line-height:26px;
-	background:url(../images/bullet_fnl.png) no-repeat left 12px;
+	background:  url("#{resource['images:bullet_fnl.png']}") no-repeat left 12px;
 	padding-left:12px;
 }
 #footer-bottom {
@@ -1336,7 +1336,7 @@ body {
 	font-size:13px;
 	display:inline-block;
 	padding:25px 0 12px 0;
-	background:url(../images/bg_red.png) repeat-x left top;
+	background: url("#{resource['images:bg_red.png']}") repeat-x left top;
 }
 #footer-bottom span {
 	display:block;
@@ -1379,7 +1379,7 @@ body {
 .thumbnail-zoom .sale-img {
 	width:50px;
 	height:36px;
-	background:url(../images/sale.png);
+	background:url("#{resource['images:sale.png']}");
 	text-align:center;
 	padding-top:14px;
 	font-size:16px;
@@ -1419,7 +1419,7 @@ body {
 }
 /* --- light hover background ------------------------------------------------------------ */
 .light-background {
-	background:url(../images/thumbnail-bg.png) repeat;
+	background: url("#{resource['images:thumbnail-bg.png']}") repeat;
 }
 /**
  * You could create multiple hover background classes for different looks depending on the
@@ -1545,7 +1545,7 @@ body {
 	cursor:pointer;
 }
 #top-link {
-	background: url("../images/up-arrow.png") no-repeat scroll left 0 transparent;
+	background: url("#{resource['images:up-arrow.png']}") no-repeat scroll left 0 transparent;
 	display: block;
 	height: 20px;
 	margin-bottom: 7px;
@@ -1558,7 +1558,7 @@ body {
 
 /* LAZY LOADING OF PRODUCT IMAGES */
 span.lazy {
-	background:url(../images/ajax-loader.gif) no-repeat center center;
+	background: url("#{resource['images:ajax-loader.gif']}") no-repeat center center;
 	display:block;
 	height:144px;
 	width:194px;
@@ -1676,7 +1676,7 @@ span.lazy img {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat right bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat right bottom;
 }
 .jcarousel-skin-slider .jcarousel-next-horizontal:hover, .jcarousel-skin-slider .jcarousel-next-horizontal:focus, .jcarousel-skin-slider .jcarousel-next-horizontal:active {
 	background-position: right bottom;
@@ -1692,7 +1692,7 @@ span.lazy img {
 	width: 6px;
 	height: 9px;
 	cursor: pointer;
-	background: transparent url(../images/ico_arrow4.png) no-repeat left bottom;
+	background: transparent url("#{resource['images:ico_arrow4.png']}") no-repeat left bottom;
 }
 .jcarousel-skin-slider .jcarousel-prev-horizontal:hover, .jcarousel-skin-slider .jcarousel-prev-horizontal:focus, .jcarousel-skin-slider .jcarousel-prev-horizontal:active {
 	background-position: left bottom;
@@ -1738,7 +1738,7 @@ span.lazy img {
 	position: absolute;
 	top: 0;
 	height:330px;
-	background:url(../images/bg-index.png) repeat;
+	background: url("#{resource['images:bg-index.png']}") repeat;
 	z-index:10;
 	cursor:pointer;
 }
@@ -1747,7 +1747,7 @@ span.lazy img {
 	width:985px;
 	position: absolute;
 	top: 0;
-	background:url(../images/bg-index.png) repeat;
+	background: url("#{resource['images:bg-index.png']}") repeat;
 	height:330px;
 	z-index:10;
 	cursor:pointer;
@@ -1769,7 +1769,7 @@ span.lazy img {
 	font-weight:bold;
 }
 .breadcrumb li {
-	background:url(../images/breadcrum-divisory.jpg) no-repeat right 2px;
+	background: url("#{resource['images:breadcrum-divisory.jpg']}") no-repeat right 2px;
 	padding:0 10px 0 0;
 	display:inline-block;
 }
@@ -1811,7 +1811,7 @@ span.lazy img {
 	padding:0 0 20px 0;
 }
 .common3 li {
-	background:url(../images/bg_bullet.png) no-repeat left 6px;
+	background: url("#{resource['images:bg_bullet.png']}") no-repeat left 6px;
 	padding:0 0 11px 13px;
 }
 .common3.none {
@@ -1876,31 +1876,31 @@ form.search2 .third span {
 form.search2 .third .imgb3, form.search2 .third .imgb3.active:hover {
 	width:14px;
 	height:10px;
-	background:url(../images/bg_bitmap.png) no-repeat right top;
+	background: url("#{resource['images:bg_bitmap.png']}") no-repeat right top;
 	float:left;
 	display:block;
 	margin:7px 10px 0 11px;
 }
 form.search2 .third .imgb3.active, form.search2 .third .imgb3.active:hover, form.search2 .third .imgb3:hover {
-	background:url(../images/bg_bitmap.png) no-repeat left top;
+	background: url("#{resource['images:bg_bitmap.png']}") no-repeat left top;
 }
 form.search2 .third .imgb4 {
 	width:16px;
 	height:8px;
-	background:url(../images/bg_bitmap2.png) no-repeat right top;
+	background: url("#{resource['images:bg_bitmap2.png']}") no-repeat right top;
 	float:left;
 	display:block;
 	margin:8px 0 0 0;
 }
 form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form.search2 .third .imgb4:hover {
-	background:url(../images/bg_bitmap2.png) no-repeat left top;
+	background: url("#{resource['images:bg_bitmap2.png']}") no-repeat left top;
 }
 .product-detail {
 	width:100%;
 }
 .pro-detail {
 	width:100%;
-	background:url(../images/dottedbg.jpg) repeat-x bottom;
+	background: url("#{resource['images:dottedbg.jpg']}") repeat-x bottom;
 	padding:33px 0 33px 0;
 }
 .product-detail .imgb5 {
@@ -1957,7 +1957,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 	display:inline-block;
 }
 .pro-right span.price2.sale {
-	background:url(../images/price-dot.jpg) repeat-x 0 10px;
+	background: url("#{resource['images:price-dot.jpg']}") repeat-x 0 10px;
 	margin-right:7px;
 }
 .button-default.cart {
@@ -1986,7 +1986,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 }
 .pro-right li {
 	float:left;
-	background:url(../images/bg_divider.png) no-repeat left 4px;
+	background: url("#{resource['images:bg_divider.png']}") no-repeat left 4px;
 	padding:0 12px 0 13px;
 	display:block;
 	font-size:12px;
@@ -2088,7 +2088,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 }
 .search2 .jquery-selectbox .jquery-selectbox-moreButton {
 	float: right;
-	background: url(../images/ico_arrow2.png) no-repeat right 7px;
+	background: url("#{resource['images:ico_arrow2.png']}") no-repeat right 7px;
 	height: 24px;
 	cursor: pointer;
 	width: inherit;
@@ -2096,7 +2096,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 	position: absolute;
 }
 .search2 .jquery-selectbox.selecthover .jquery-selectbox-moreButton {
-	background: url(../images/ico_arrow2_hover.png) no-repeat right 7px;
+	background: url("#{resource['images:ico_arrow2_hover.png']}") no-repeat right 7px;
 }
 .search2 .jquery-selectbox .jquery-selectbox-item.listelementhover {
 	background: #F8F8F8;
@@ -2155,7 +2155,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 }
 .detail-block ul.listline {
 	display:block;
-	background:url(../images/dottedbg.jpg) repeat-x bottom;
+	background: url("#{resource['images:dottedbg.jpg']}") repeat-x bottom;
 	padding:0 0 19px 0;
 	margin:-2px 0 0 0;
 }
@@ -2183,7 +2183,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 }
 .detail-block .quat-col {
 	width:100%;
-	background:url(../images/dottedbg.jpg) repeat-x bottom;
+	background: url("#{resource['images:dottedbg.jpg']}") repeat-x bottom;
 	padding:33px 0 31px 0;
 	margin:0 0 32px 0;
 }
@@ -2269,7 +2269,7 @@ form.search2 .third .imgb4.active, form.search2 .third .imgb4.active:hover, form
 }
 .info-content li {
 	padding:25px 0 26px 0;
-	background:url(../images/dottedbg.jpg) repeat-x bottom;
+	background:url("#{resource['images:dottedbg.jpg']}") repeat-x bottom;
 }
 .info-content h3 {
 	font-weight:bold;
@@ -2330,10 +2330,10 @@ div.rating-cancel, div.star-rating {
 	overflow:hidden
 }
 div.rating-cancel, div.rating-cancel a {
-	background:url(../images/delete.gif) no-repeat 0 -16px
+	background: url("#{resource['images:delete.gif']}") no-repeat 0 -16px
 }
 div.star-rating, div.star-rating a {
-	background:url(../images/star.gif) no-repeat 0 0px
+	background: url("#{resource['images:star.gif']}") no-repeat 0 0px
 }
 div.rating-cancel a, div.star-rating a {
 	display:block;
@@ -2401,7 +2401,7 @@ div.rating-cancel {
 }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
 	border: 1px solid #fbd850;
-	background: #ffffff url(images/ui-bg_glass_65_ffffff_1x400.png) 50% 50% repeat-x;
+	background: #ffffff url("#{resource['images:ui-bg_glass_65_ffffff_1x400.png']}") 50% 50% repeat-x;
 	color:#eb8f00;
 }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {
@@ -2414,7 +2414,7 @@ div.rating-cancel {
 ----------------------------------*/
 .ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
 	border: 1px solid #fed22f;
-	background: #ffe45c url(images/ui-bg_highlight-soft_75_ffe45c_1x100.png) 50% top repeat-x;
+	background: #ffe45c url("#{resource['images:ui-bg_highlight-soft_75_ffe45c_1x100.png']}")  50% top repeat-x;
 	color:#363636;
 }
 .ui-state-highlight a, .ui-widget-content .ui-state-highlight a, .ui-widget-header .ui-state-highlight a {
@@ -2422,7 +2422,7 @@ div.rating-cancel {
 }
 .ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {
 	border: 1px solid #cd0a0a;
-	background: #b81900 url(images/ui-bg_diagonals-thick_18_b81900_40x40.png) 50% 50% repeat;
+	background: #b81900 url("#{resource['images:ui-bg_diagonals-thick_18_b81900_40x40.png']}")   50% 50% repeat;
 }
 .ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary {
 }
@@ -2443,31 +2443,31 @@ div.rating-cancel {
 .ui-icon {
 	width: 16px;
 	height: 16px;
-	background-image: url(images/ui-icons_222222_256x240.png);
+	background-image: url("#{resource['images:ui-icons_222222_256x240.png']}");
 }
 .ui-widget-content .ui-icon {
-	background-image: url(images/ui-icons_222222_256x240.png);
+	background-image: url("#{resource['images:ui-icons_222222_256x240.png']}");
 }
 .ui-widget-header .ui-icon {
-	background-image: url(images/ui-icons_ffffff_256x240.png);
+	background-image: url("#{resource['images:ui-icons_222222_256x240.png']}");;
 }
 .ui-state-default .ui-icon {
-	background-image: url(images/ui-icons_ef8c08_256x240.png);
+	background-image: url("#{resource['images:ui-icons_222222_256x240.png']}");
 	display:none;
 }
 .ui-state-hover .ui-icon, .ui-state-focus .ui-icon {
-	background-image: url(images/ui-icons_ef8c08_256x240.png);
+	background-image: url("#{resource['images:ui-icons_ef8c08_256x240.png']}");
 	display:none;
 }
 .ui-state-active .ui-icon {
-	background-image: url(images/ui-icons_ef8c08_256x240.png);
+	background-image: url("#{resource['images:ui-icons_ef8c08_256x240.png']}");
 	display:none;
 }
 .ui-state-highlight .ui-icon {
-	background-image: url(images/ui-icons_228ef1_256x240.png);
+	background-image:  url("#{resource['images:ui-icons_228ef1_256x240.png']}");
 }
 .ui-state-error .ui-icon, .ui-state-error-text .ui-icon {
-	background-image: url(images/ui-icons_ffd27a_256x240.png);
+	background-image: url("#{resource['images:ui-icons_ffd27a_256x240.png']}");
 }
 /* positioning */
 .ui-icon-carat-1-n {
@@ -2998,7 +2998,7 @@ div.rating-cancel {
 
 /* Overlays */
 .ui-widget-overlay {
-	background-image: url(images/ui-bg_diagonals-thick_20_666666_40x40.png);
+	background-image: url("#{resource['images:ui-bg_diagonals-thick_20_666666_40x40.png']}");
 	background-position: 50% 50%;
 	background-repeat: repeat;
 	opacity: .50;
@@ -3007,7 +3007,7 @@ div.rating-cancel {
 .ui-widget-shadow {
 	margin: -5px 0 0 -5px;
 	padding: 5px;
-	background: #000000 url(images/ui-bg_flat_10_000000_40x100.png) 50% 50% repeat-x;
+	background: #000000 url("#{resource['images:ui-bg_flat_10_000000_40x100.png']}")  50% 50% repeat-x;
 	opacity: .20;
 	filter:Alpha(Opacity=20);
 	-moz-border-radius: 5px;
@@ -3141,7 +3141,7 @@ div.rating-cancel {
 	left: 0;
 	width: 40px;
 	height: 480px;
-	background-image: url('../images/fancybox.png');
+	background-image: url("#{resource['images:fancybox.png']}");
 }
 #fancybox-overlay {
 	position: absolute;
@@ -3198,7 +3198,7 @@ div.rating-cancel {
 	right: -15px;
 	width: 30px;
 	height: 30px;
-	background: transparent url('../images/fancybox.png') -40px 0px;
+	background: transparent url("#{resource['images:fancybox.png']}") -40px 0px;
 	cursor: pointer;
 	z-index: 1103;
 	display: none;
@@ -3231,7 +3231,7 @@ div.rating-cancel {
 	width: 35%;
 	cursor: pointer;
 	outline: none;
-	background: transparent url('../images/blank.gif');
+	background: transparent url("#{resource['images:blank.gif']}");
 	z-index: 1102;
 	display: none;
 }
@@ -3253,11 +3253,11 @@ div.rating-cancel {
 	display: block;
 }
 #fancybox-left-ico {
-	background-image: url('../images/fancybox.png');
+	background-image: url("#{resource['images:fancybox.png']}");
 	background-position: -40px -30px;
 }
 #fancybox-right-ico {
-	background-image: url('../images/fancybox.png');
+	background-image: url("#{resource['images:fancybox.png']}");
 	background-position: -40px -60px;
 }
 #fancybox-left:hover, #fancybox-right:hover {
@@ -3343,7 +3343,7 @@ div.rating-cancel {
 }
 #fancybox-title-over {
 	padding: 10px;
-	background-image: url('../images/fancy_title_over.png');
+	background-image: url("#{resource['images:fancy_title_over.png']}");
 	display: block;
 }
 .fancybox-title-float {
@@ -3363,35 +3363,35 @@ div.rating-cancel {
 }
 #fancybox-title-float-left {
 	padding: 0 0 0 15px;
-	background: url('../images/fancybox.png') -40px -90px no-repeat;
+	background: url("#{resource['images:fancybox.png']}") -40px -90px no-repeat;
 }
 #fancybox-title-float-main {
 	line-height: 29px;
 	font-weight: bold;
 	padding: 0 0 3px 0;
-	background: url('../images/fancybox-x.png') 0px -40px;
+	background: url("#{resource['images:fancybox-x.png']}") 0px -40px;
 }
 #fancybox-title-float-right {
 	padding: 0 0 0 15px;
-	background: url('../images/fancybox.png') -55px -90px no-repeat;
+	background: url("#{resource['images:fancybox.png']}") -55px -90px no-repeat;
 }
 /* IE6 */
 
 .fancybox-ie6 #fancybox-close {
 	background: transparent;
-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_close.png', sizingMethod='scale');
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"#{resource["images:fancy_close.png"]}"', sizingMethod='scale');
 }
 .fancybox-ie6 #fancybox-left-ico {
 	background: transparent;
-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_nav_left.png', sizingMethod='scale');
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"#{resource["images:fancy_nav_left.png"]}"', sizingMethod='scale');
 }
 .fancybox-ie6 #fancybox-right-ico {
 	background: transparent;
-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_nav_right.png', sizingMethod='scale');
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"#{resource["images:fancy_nav_right.png"]}"', sizingMethod='scale');
 }
 .fancybox-ie6 #fancybox-title-over {
 	background: transparent;
-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_title_over.png', sizingMethod='scale');
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='"#{resource["images:fancy_title_over.png"]}"', sizingMethod='scale');
 	zoom: 1;
 }
 .fancybox-ie6 #fancybox-title-float-left {
@@ -3483,7 +3483,7 @@ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_
 .customer-form .input {
 	width:361px;
 	height:40px;
-	background:url(../images/bg_input.png) no-repeat;
+	background:url("#{resource['images:bg_input.png']}") no-repeat;
 	border-width:1px;
 	padding:0 14px;
 	font-size:14px;
@@ -3502,7 +3502,7 @@ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/fancy_
 	width:80px;
 	height:35px;
 	border:none;
-	background:url(../images/bg_button.png) no-repeat left top;
+	background:url("#{resource['images:bg_input.png']}") no-repeat left top;
 	float:left;
 	margin:33px 11px 0 0;
 	font-size:12px;
@@ -3753,7 +3753,7 @@ ul.catelist {
 	padding:0 40px 0 0;
 }
 ul.catelist li {
-	background:url(../images/bg_bullet.png) no-repeat left 5px;
+	background: url("#{resource['images:bg_bullet.png']}") no-repeat left 5px;
 	display:block;
 	padding:0 0 18px 14px;
 }
@@ -3767,7 +3767,7 @@ ul.catelist li {
 	padding-bottom:0;
 }
 .Featured .dotted {
-	background:url(../images/dottedbg.jpg) repeat-x;
+	background: url("#{resource['images:dottedbg.jpg']}") repeat-x;
 	width:100%;
 	height:1px;
 	margin:32px 0 33px 0;
@@ -4032,7 +4032,7 @@ table td.last-child {
 	padding:0 4px 0 18px;
 }
 .shopping .left .button, .shopping .left .button3 {
-	background:url(../images/bg_button2.png) no-repeat left top;
+	background: url("#{resource['images:bg_button2.png']}") no-repeat left top;
 	width:98px;
 	height:35px;
 	margin:1px 0 32px 24px;
@@ -4201,7 +4201,7 @@ table td.last-child {
 	margin-top:17px;
 }
 .fill-form .button {
-	background:url(../images/bg_button2.png) no-repeat left top;
+	background: url("#{resource['images:bg_button2.png']}") no-repeat left top;
 	width:98px;
 	height:35px;
 	line-height:33px;
@@ -4235,10 +4235,10 @@ table td.last-child {
 	height:16px;
 }
 #status.ok {
-    background: url("../images/ok.png") no-repeat scroll left top transparent;
+    background: url("#{resource['images:ok.png']}") no-repeat scroll left top transparent;
 }
 #status.error {
-    background: url("../images/cross.png") no-repeat scroll left top transparent;
+    background: url("#{resource['images:cross.png']}") no-repeat scroll left top transparent;
 }
 /* ----------------------------------- START REGISTER PAGE  -----------------------------------*/
 .accordin-panel.register-page {
