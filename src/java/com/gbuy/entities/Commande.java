@@ -5,7 +5,6 @@
 package com.gbuy.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,10 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.xml.bind.annotation.XmlRootElement;
+import javax.validation.constraints.Size;
 
 /**
  *
@@ -28,7 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "commande")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Commande.findAll", query = "SELECT c FROM Commande c")})
 public class Commande implements Serializable {
@@ -40,18 +36,18 @@ public class Commande implements Serializable {
     private Integer idcommande;
     @Basic(optional = false)
     @NotNull
+    @Size(min = 1, max = 45)
     @Column(name = "date")
-    @Temporal(TemporalType.DATE)
-    private Date date;
-    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
-    @ManyToOne(optional = false)
-    private Utilisateur idutilisateur;
-    @JoinColumn(name = "iddeal", referencedColumnName = "iddeal")
-    @ManyToOne(optional = false)
-    private Deal iddeal;
+    private String date;
     @JoinColumn(name = "idbon_achat", referencedColumnName = "idbon_achat")
     @ManyToOne
     private BonAchat idbonAchat;
+    @JoinColumn(name = "iddeal", referencedColumnName = "iddeal")
+    @ManyToOne(optional = false)
+    private Deal iddeal;
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
+    @ManyToOne(optional = false)
+    private Utilisateur idutilisateur;
 
     public Commande() {
     }
@@ -60,7 +56,7 @@ public class Commande implements Serializable {
         this.idcommande = idcommande;
     }
 
-    public Commande(Integer idcommande, Date date) {
+    public Commande(Integer idcommande, String date) {
         this.idcommande = idcommande;
         this.date = date;
     }
@@ -73,20 +69,20 @@ public class Commande implements Serializable {
         this.idcommande = idcommande;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Utilisateur getIdutilisateur() {
-        return idutilisateur;
+    public BonAchat getIdbonAchat() {
+        return idbonAchat;
     }
 
-    public void setIdutilisateur(Utilisateur idutilisateur) {
-        this.idutilisateur = idutilisateur;
+    public void setIdbonAchat(BonAchat idbonAchat) {
+        this.idbonAchat = idbonAchat;
     }
 
     public Deal getIddeal() {
@@ -97,12 +93,12 @@ public class Commande implements Serializable {
         this.iddeal = iddeal;
     }
 
-    public BonAchat getIdbonAchat() {
-        return idbonAchat;
+    public Utilisateur getIdutilisateur() {
+        return idutilisateur;
     }
 
-    public void setIdbonAchat(BonAchat idbonAchat) {
-        this.idbonAchat = idbonAchat;
+    public void setIdutilisateur(Utilisateur idutilisateur) {
+        this.idutilisateur = idutilisateur;
     }
 
     @Override

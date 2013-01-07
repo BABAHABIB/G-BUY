@@ -6,7 +6,6 @@ package com.gbuy.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,18 +14,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +30,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "utilisateur")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Utilisateur.findAll", query = "SELECT u FROM Utilisateur u")})
 public class Utilisateur implements Serializable {
@@ -83,13 +78,16 @@ public class Utilisateur implements Serializable {
     @Size(max = 45)
     @Column(name = "code_postale")
     private String codePostale;
+    @Size(max = 45)
     @Column(name = "date_naissance")
-    @Temporal(TemporalType.DATE)
-    private Date dateNaissance;
+    private String dateNaissance;
     @Size(max = 45)
     @Column(name = "type")
     private String type;
-    @ManyToMany(mappedBy = "utilisateurCollection")
+    @JoinTable(name = "rate", joinColumns = {
+        @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")}, inverseJoinColumns = {
+        @JoinColumn(name = "iddeal", referencedColumnName = "iddeal")})
+    @ManyToMany
     private Collection<Deal> dealCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "idutilisateur")
     private Collection<BonAchat> bonAchatCollection;
@@ -193,11 +191,11 @@ public class Utilisateur implements Serializable {
         this.codePostale = codePostale;
     }
 
-    public Date getDateNaissance() {
+    public String getDateNaissance() {
         return dateNaissance;
     }
 
-    public void setDateNaissance(Date dateNaissance) {
+    public void setDateNaissance(String dateNaissance) {
         this.dateNaissance = dateNaissance;
     }
 
@@ -209,7 +207,6 @@ public class Utilisateur implements Serializable {
         this.type = type;
     }
 
-    @XmlTransient
     public Collection<Deal> getDealCollection() {
         return dealCollection;
     }
@@ -218,7 +215,6 @@ public class Utilisateur implements Serializable {
         this.dealCollection = dealCollection;
     }
 
-    @XmlTransient
     public Collection<BonAchat> getBonAchatCollection() {
         return bonAchatCollection;
     }
@@ -227,7 +223,6 @@ public class Utilisateur implements Serializable {
         this.bonAchatCollection = bonAchatCollection;
     }
 
-    @XmlTransient
     public Collection<Commande> getCommandeCollection() {
         return commandeCollection;
     }
@@ -236,7 +231,6 @@ public class Utilisateur implements Serializable {
         this.commandeCollection = commandeCollection;
     }
 
-    @XmlTransient
     public Collection<Utilisateur> getUtilisateurCollection() {
         return utilisateurCollection;
     }
@@ -253,7 +247,6 @@ public class Utilisateur implements Serializable {
         this.parrain = parrain;
     }
 
-    @XmlTransient
     public Collection<Commentaire> getCommentaireCollection() {
         return commentaireCollection;
     }

@@ -18,7 +18,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
@@ -26,7 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @Table(name = "commentaire")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Commentaire.findAll", query = "SELECT c FROM Commentaire c")})
 public class Commentaire implements Serializable {
@@ -46,12 +44,12 @@ public class Commentaire implements Serializable {
     @Size(min = 1, max = 45)
     @Column(name = "date")
     private String date;
-    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
-    @ManyToOne(optional = false)
-    private Utilisateur idutilisateur;
     @JoinColumn(name = "iddeal", referencedColumnName = "iddeal")
     @ManyToOne(optional = false)
     private Deal iddeal;
+    @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")
+    @ManyToOne(optional = false)
+    private Utilisateur idutilisateur;
 
     public Commentaire() {
     }
@@ -90,20 +88,20 @@ public class Commentaire implements Serializable {
         this.date = date;
     }
 
-    public Utilisateur getIdutilisateur() {
-        return idutilisateur;
-    }
-
-    public void setIdutilisateur(Utilisateur idutilisateur) {
-        this.idutilisateur = idutilisateur;
-    }
-
     public Deal getIddeal() {
         return iddeal;
     }
 
     public void setIddeal(Deal iddeal) {
         this.iddeal = iddeal;
+    }
+
+    public Utilisateur getIdutilisateur() {
+        return idutilisateur;
+    }
+
+    public void setIdutilisateur(Utilisateur idutilisateur) {
+        this.idutilisateur = idutilisateur;
     }
 
     @Override

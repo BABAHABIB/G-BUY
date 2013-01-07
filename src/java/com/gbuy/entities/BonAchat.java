@@ -20,8 +20,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -29,7 +27,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "bon_achat")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "BonAchat.findAll", query = "SELECT b FROM BonAchat b")})
 public class BonAchat implements Serializable {
@@ -99,7 +96,6 @@ public class BonAchat implements Serializable {
         this.idutilisateur = idutilisateur;
     }
 
-    @XmlTransient
     public Collection<Commande> getCommandeCollection() {
         return commandeCollection;
     }

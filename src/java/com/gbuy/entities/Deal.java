@@ -6,7 +6,6 @@ package com.gbuy.entities;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.Date;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -15,19 +14,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -35,7 +29,6 @@ import javax.xml.bind.annotation.XmlTransient;
  */
 @Entity
 @Table(name = "deal")
-@XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Deal.findAll", query = "SELECT d FROM Deal d")})
 public class Deal implements Serializable {
@@ -65,14 +58,18 @@ public class Deal implements Serializable {
     private double prix;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "date_exp")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateExp;
+    @Size(min = 1, max = 45)
+    @Column(name = "date_ajout")
+    private String dateAjout;
     @Basic(optional = false)
     @NotNull
-    @Column(name = "date_ajout")
-    @Temporal(TemporalType.DATE)
-    private Date dateAjout;
+    @Size(min = 1, max = 45)
+    @Column(name = "date_exp")
+    private String dateExp;
+    @Column(name = "Heur_exp")
+    private Integer heurexp;
+    @Column(name = "Minutes_exp")
+    private Integer minutesexp;
     @Size(max = 45)
     @Column(name = "conditions")
     private String conditions;
@@ -100,17 +97,14 @@ public class Deal implements Serializable {
     @Size(max = 45)
     @Column(name = "cadeau")
     private String cadeau;
-    @JoinTable(name = "rate", joinColumns = {
-        @JoinColumn(name = "iddeal", referencedColumnName = "iddeal")}, inverseJoinColumns = {
-        @JoinColumn(name = "idutilisateur", referencedColumnName = "idutilisateur")})
-    @ManyToMany
+    @ManyToMany(mappedBy = "dealCollection")
     private Collection<Utilisateur> utilisateurCollection;
-    @JoinColumn(name = "prestataire", referencedColumnName = "idprestataire")
-    @ManyToOne
-    private Prestataire prestataire;
     @JoinColumn(name = "categorie", referencedColumnName = "idcategorie")
     @ManyToOne(optional = false)
     private Categorie categorie;
+    @JoinColumn(name = "prestataire", referencedColumnName = "idprestataire")
+    @ManyToOne
+    private Prestataire prestataire;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "iddeal")
     private Collection<Commande> commandeCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "iddeal")
@@ -123,14 +117,14 @@ public class Deal implements Serializable {
         this.iddeal = iddeal;
     }
 
-    public Deal(Integer iddeal, String titre, String description, double prixHabituel, double prix, Date dateExp, Date dateAjout) {
+    public Deal(Integer iddeal, String titre, String description, double prixHabituel, double prix, String dateAjout, String dateExp) {
         this.iddeal = iddeal;
         this.titre = titre;
         this.description = description;
         this.prixHabituel = prixHabituel;
         this.prix = prix;
-        this.dateExp = dateExp;
         this.dateAjout = dateAjout;
+        this.dateExp = dateExp;
     }
 
     public Integer getIddeal() {
@@ -173,20 +167,36 @@ public class Deal implements Serializable {
         this.prix = prix;
     }
 
-    public Date getDateExp() {
-        return dateExp;
-    }
-
-    public void setDateExp(Date dateExp) {
-        this.dateExp = dateExp;
-    }
-
-    public Date getDateAjout() {
+    public String getDateAjout() {
         return dateAjout;
     }
 
-    public void setDateAjout(Date dateAjout) {
+    public void setDateAjout(String dateAjout) {
         this.dateAjout = dateAjout;
+    }
+
+    public String getDateExp() {
+        return dateExp;
+    }
+
+    public void setDateExp(String dateExp) {
+        this.dateExp = dateExp;
+    }
+
+    public Integer getHeurexp() {
+        return heurexp;
+    }
+
+    public void setHeurexp(Integer heurexp) {
+        this.heurexp = heurexp;
+    }
+
+    public Integer getMinutesexp() {
+        return minutesexp;
+    }
+
+    public void setMinutesexp(Integer minutesexp) {
+        this.minutesexp = minutesexp;
     }
 
     public String getConditions() {
@@ -261,21 +271,12 @@ public class Deal implements Serializable {
         this.cadeau = cadeau;
     }
 
-    @XmlTransient
     public Collection<Utilisateur> getUtilisateurCollection() {
         return utilisateurCollection;
     }
 
     public void setUtilisateurCollection(Collection<Utilisateur> utilisateurCollection) {
         this.utilisateurCollection = utilisateurCollection;
-    }
-
-    public Prestataire getPrestataire() {
-        return prestataire;
-    }
-
-    public void setPrestataire(Prestataire prestataire) {
-        this.prestataire = prestataire;
     }
 
     public Categorie getCategorie() {
@@ -286,7 +287,14 @@ public class Deal implements Serializable {
         this.categorie = categorie;
     }
 
-    @XmlTransient
+    public Prestataire getPrestataire() {
+        return prestataire;
+    }
+
+    public void setPrestataire(Prestataire prestataire) {
+        this.prestataire = prestataire;
+    }
+
     public Collection<Commande> getCommandeCollection() {
         return commandeCollection;
     }
@@ -295,7 +303,6 @@ public class Deal implements Serializable {
         this.commandeCollection = commandeCollection;
     }
 
-    @XmlTransient
     public Collection<Commentaire> getCommentaireCollection() {
         return commentaireCollection;
     }

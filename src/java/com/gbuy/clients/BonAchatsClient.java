@@ -7,6 +7,7 @@ package com.gbuy.clients;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
+import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:BonAchatFacadeREST
@@ -21,10 +22,11 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Anas
  */
+@Stateless
 public class BonAchatsClient {
     private WebResource webResource;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/G-BUY-RestFull/webresources";
+    private static final String BASE_URI = "http://localhost:8080/G-BUY-REST/webresources";
 
     public BonAchatsClient() {
         com.sun.jersey.api.client.config.ClientConfig config = new com.sun.jersey.api.client.config.DefaultClientConfig();

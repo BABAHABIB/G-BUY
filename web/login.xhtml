@@ -9,35 +9,98 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://java.sun.com/jsf/core">
-    <h:head></h:head>
-    <h:body>
-        <ui:composition template="/template/commun.xhtml" >
-            <ui:define name="leftcol">
-                
-                <h1 class="red">Connectez vous</h1>
-                <div class="accordin-block step2">
-                    <h:form>
-                        
-                             <p:messages id="messages"  autoUpdate="true" closable="true" />  
-                            <div class="row1">
-                                <label for="email" class="title">Email<strong>*</strong></label>
-                                <p:inputText value="#{utilisateurBean.user.email}" validatorMessage="Entrer un email valide" id="email" styleClass="input">
-                                    <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
-                                </p:inputText>
-                            </div>
-                            <div class="clear"></div>
-                            
-                            <div class="row1">
-                                <label for="password" class="title">Mot de passe<strong>*</strong></label>
-                                <p:password value="#{utilisateurBean.user.password}" validatorMessage="Le mot de passe est vide"  id="password" styleClass="input"/>
-                            </div> 
+    <h:head>
+        <title>G-BUY::Loing</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+       
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
 
-                            <div class="clear"></div>
-                            <p:commandButton value="SE CONNECTER" update="messages" actionListener="#{utilisateurBean.login}" />
-                       
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <body>
+        <ui:include src="commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>An HTML5/CSS3 powered website that contains very less images</h1>
+                <h2>Even the icons used are texts icons, easier to use/customize and load page faster.</h2>
+            </hgroup>
+            <article role="main" class="clearfix">
+                <div class="post">
+                    <h2>Connectez vous</h2>
+                    <p>Vous n'avez pas de compte? <a href="#">inscription rapide</a></p>
+
+                    <h:form class="c-form">
+                        <p:messages id="messages"  autoUpdate="true" closable="true" />  
+                        <label for="email" class="title">Email<strong>*</strong></label>
+                        <p:inputText value="#{utilisateurBean.user.email}" validatorMessage="Entrer un email valide" id="email" styleClass="input">
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        </p:inputText>
+                        <label for="password" class="title">Mot de passe<strong>*</strong></label>
+                        <p:password value="#{utilisateurBean.user.password}" validatorMessage="Le mot de passe est vide"  id="password" styleClass="input"/>
+                        <p:commandButton value="SE CONNECTER" update="messages" styleClass="button left" actionListener="#{utilisateurBean.login}" />
                     </h:form>
                 </div>
-            </ui:define>
-        </ui:composition>
-    </h:body>
+                <aside role="complementary">
+                    <a href="#demo-url"><h:graphicImage name="login_large.jpg" library="images" /></a>
+                </aside>
+            </article>
+        </section> <!-- // banner ends -->
+        <section class="container">
+            <div class="columns">
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
+                        <figcaption>
+                            <h3>Micro-formatted HTML5</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <a href="#">volutpat vitae nisi.</a> Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/sports/" alt="Lorem ipsum dolor..." class="alt-col" />
+                        <figcaption>
+                            <h3>Responsive</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/people/" alt="Lorem ipsum dolor..." />
+                        <figcaption>
+                            <h3>Pure CSS3</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <strong>volutpat vitae nisi. Nulla luctus</strong> lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more</a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/nightlife/" alt="Lorem ipsum dolor..." class="alt-col" />
+                        <figcaption>
+                            <h3>Browser compatible</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more</a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div> <!-- //.columns -->
+            <ul class="thumb-rotator">
+                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
+            </ul>
+        </section>
+
+        <ui:include src="commun/footer.xhtml" />
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </body>
 </html>
