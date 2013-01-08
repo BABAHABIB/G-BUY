@@ -29,7 +29,7 @@ public class RechercherBean {
     private DealsClient dealsClient;
     private List<Deal> deals;
     private String tag;
-    private final String RECHERCHER = "Rechercher...";
+    private final String RECHERCHER = "Trouver un Deal...";
 
     public RechercherBean() {
         deals = new ArrayList<Deal>();
@@ -37,7 +37,8 @@ public class RechercherBean {
     }
 
     public String search() {
-        if (!tag.equals(RECHERCHER)) {
+        if (!tag.equals(RECHERCHER) && !tag.isEmpty()) {
+            dealsClient = new DealsClient();
             String reponse = dealsClient.search_JSON(String.class, tag);
             dealsClient.close();
             if (reponse != null && !reponse.isEmpty()) {

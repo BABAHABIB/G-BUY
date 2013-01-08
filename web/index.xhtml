@@ -7,12 +7,23 @@ and open the template in the editor.
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       class="no-js"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:m="http://code.google.com/p/gmaps4jsf/"
+      >
     <h:head>
         <title>G-BUY</title>
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
 
+        <script
+
+            src="http://maps.google.com/maps?file=api&amp;v=2&amp;
+            key=ABQIAAAAxrVS1QxlpJHXxQ2Vxg2bJBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxS9AOPy_YJl48ifAy4mq6I8SgK8fg"
+            type="text/javascript">
+
+        </script>
+
+        <h:outputStylesheet name="kickstart.css" library="css"/>
         <h:outputStylesheet name="kickstart-grid.css" library="css"/>
         <h:outputStylesheet name="kickstart-forms.css" library="css" />
         <h:outputStylesheet name="style.css" library="css"/>
@@ -24,25 +35,61 @@ and open the template in the editor.
         <ui:include src="commun/header.xhtml" />
         <section role="banner">
             <hgroup>
-                <h1>An HTML5/CSS3 powered website that contains very less images</h1>
-                <h2>Even the icons used are texts icons, easier to use/customize and load page faster.</h2>
+                <h1>G-BUY CASSE LES PRIX !!!</h1>
+
             </hgroup>
             <article role="main" class="clearfix">
                 <div class="post">
-                    <h2>It Fits: an HTML5/CSS3 Responsive template</h2>
-                    <p>Nunc porta, mauris sit amet laoreet vestibulum, elit leo iaculis lorem, mattis euismod eros lorem sed est. Donec porttitor augue vel nisl blandit gravida. Etiam eu purus non enim vehicula ultrices a non neque.</p>
-                    <p>Morbi purus odio, faucibus sit amet elementum in:</p>
-                    <ul>
-                        <li>interdum eu ipsum.</li>
-                        <li>Donec cursus pellentesque mauris vitae ultricies.</li>
-                        <li>Donec lacinia nunc in nisl hendrerit scelerisque.</li>
-                    </ul>
-                    <a href="page.html" class="button left">Learn more <span class="icon">:</span></a>
+                    <h2><h:outputText value="#{jourDealBean.dealDuJour.titre}" /></h2>
+                    <p><a href="#"><b>>><h:outputText value="#{jourDealBean.dealDuJour.categorie.nom}" /></b></a></p>
+                    <div id="desc" class="col_6">
+                        <p>
+                            <h3>L'offre</h3>
+                            <h:outputText value="#{jourDealBean.dealDuJour.description}" />
+                        </p>
+                        <p>
+                            <h3>Condition</h3>
+                            <h:outputText value="#{jourDealBean.dealDuJour.conditions}" />
+                        </p>
+                        <p>
+                            <h3>Date d'expiration</h3>
+                            <h:outputText value="#{jourDealBean.dealDuJour.dateExp}" />
+                        </p>
+                    </div>
+                    <div id="count" class="col_6">
+                        <p><h2>Prix :  <h:outputText value="#{jourDealBean.dealDuJour.prix}" /></h2></p>
+                        <p>
+                            <h3 style="color: red;"><strike>Prix Habitule : <h:outputText value="#{jourDealBean.dealDuJour.prixHabituel}" /> </strike></h3>                          
+                        </p>
+                        <p>
+                            <h5>Pour profiter de ce deal, il vous reste :</h5>   
+                            <h:outputText value="#{jourDealBean.dealDuJour.heurexp}" /> H 
+                            <h:outputText value="#{jourDealBean.dealDuJour.minutesexp}" /> MIN
+                        </p>
+                    </div>
+                    <div class="clear"></div>
+                    <div>
+                        <p>
+                            <h3>Prestataire : <h:outputText value="#{jourDealBean.dealDuJour.prestataire.nom}" /></h3>
+                            <ul>
+                                <li> <h:outputText value="#{jourDealBean.dealDuJour.prestataire.description}" /></li>
+                                <li> <h:outputText value="#{jourDealBean.dealDuJour.prestataire.adresse}" /></li>
+                                <li>  <h:outputText value="#{jourDealBean.dealDuJour.prestataire.pays}" /></li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <a href="page.html" class="button left">ACHETER</a>
                 </div>
                 <aside role="complementary">
-                    <a href="#demo-url"><img src="http://lorempixel.com/420/290/nature/" alt="Lorem ipsum dolor..." /></a>
+                    <a href="#demo-url"><h:graphicImage name="hotel.jpg" library="images" /></a>
+                    <h:form id="map">
+                        <m:map width="400px" height="200px" zoom="15" address="#{jourDealBean.dealDuJour.ville}+ #{jourDealBean.dealDuJour.adresse}" />
+                    </h:form>
                 </aside>
+
             </article>
+
         </section> <!-- // banner ends -->
         <section class="container">
 

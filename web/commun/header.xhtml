@@ -8,47 +8,47 @@ and open the template in the editor.
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
     <h:head>
-        
+
     </h:head>
     <body>
         <ui:composition>
-         <header class="clearfix">
-            <div class="container">
-                <a id="logo" href="index.html"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
-                <ul class="social-icons">
-                    <li><a href="#" class="icon">PARRAINER ET GAGNER 10 EUR</a></li>
-                </ul>
-                <nav class="clearfix">
-                    <ul role="navigation">
-                        <li>
-                            <a href="index.xhtml">Home</a>
-                        </li>
-                        <li>
-                            <a href="#">Categories</a>
-                        </li>
-                        <li>
-                            <a href="#">Page</a>
-                        </li>
-                        <li>
-                            <a href="login.xhtml">Connexion</a>
-                        </li>
-                        <li>
-                            <a href="register.xhtml">Inscription</a>
-                        </li>
-                        <li>
-                            <a href="contact.html">Contact us</a>
-                        </li>
+            <header class="clearfix">
+                <div class="container">
+                    <a id="logo" href="index.html"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
+                    <ul class="social-icons">
+                        <li><a href="#" class="icon">PARRAINER ET GAGNER 10 EUR</a></li>
                     </ul>
-                </nav>
+                    <nav class="clearfix">
+                        <ul role="navigation">
+                            <li>
+                                <a href="index.xhtml">Home</a>
+                            </li>
+                            <li>
+                                <a href="#">Categories</a>
+                            </li>
+                            <li>
+                                <a href="#">Page</a>
+                            </li>
+                            <li>
+                                <a href="login.xhtml">Connexion</a>
+                            </li>
+                            <li>
+                                <a href="register.xhtml">Inscription</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="left">
+                <h:form>
+                    <h:inputText value="#{search.tag}"  size="35"
+                                 onfocus="if(this.value == 'Trouver un Deal...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Trouver un Deal...'; }"/>
+                    <h:commandButton value="Rechercher" action="#{search.search()}" class="hide" />
+                </h:form>
             </div>
-        </header>
-        <div class="left">
-            <h:form>
-                <h:inputText class="col_7" value="#{search.tag}" 
-                         onfocus="if(this.value == 'Rechercher...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Rechercher...'; }"/>
-            <h:commandButton value="Rechercher" action="#{search.search()}" />
-            </h:form>
-        </div>
         </ui:composition>
     </body>
 </html>
