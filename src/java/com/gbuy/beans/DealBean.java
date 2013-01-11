@@ -14,11 +14,17 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
+
 
 /**
  *
@@ -32,6 +38,7 @@ public class DealBean {
     private Deal deal;
     private DealsClient dealclient;
     private List<Deal> listDeal;
+    private UIParameter id_deal;
     //-------------------------------
     private Prestataire prestataire;
     private PrestataireClient prestataireclient;
@@ -154,37 +161,17 @@ public class DealBean {
     }
 
 
-//    public void doModifierDeal(){
-//        dealclient = new DealsClient();
-//        Gson gson = new Gson();
-//        System.out.println(gson.toJson(deal));
-//        dealclient.edit_JSON(gson.toJson(deal));
-//        dealclient.close();
-//        try {
-//            context.getExternalContext().redirect("gestionDeal.xhtml");
-//        } catch (IOException ex) {
-//            Logger.getLogger(DealBean.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//}
-//    public String modifier() {
-//        for (Deal d : listDeal) {
-//            if (d.getIddeal() == Integer.parseInt(id_deal.getValue().toString())) {
-//                deal = d;
-//                return "NewDeal.xhtml";
-//            }         
-//        }
-//        return null;
-//    }
-//    public void supprimerDeal() {
-//        dealclient = new DealsClient();
-//        dealclient.remove(id_deal.getValue().toString());
-//        dealclient.close();
-//        try {
-//            context.getExternalContext().redirect("gestionDeal.xhtml");
-//        } catch (IOException ex) {
-//            Logger.getLogger(DealBean.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    
+
+    public void supprimerDeal() {
+        dealclient = new DealsClient();
+        dealclient.remove(id_deal.getValue().toString());
+        dealclient.close();
+        try {
+            context.getExternalContext().redirect("gestionDeal.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(DealBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public Integer getCategorieselected() {
         return categorieselected;
@@ -200,6 +187,14 @@ public class DealBean {
 
     public void setPrestataireselected(Integer prestataireselected) {
         this.prestataireselected = prestataireselected;
+    }
+
+    public UIParameter getId_deal() {
+        return id_deal;
+    }
+
+    public void setId_deal(UIParameter id_deal) {
+        this.id_deal = id_deal;
     }
     
     
