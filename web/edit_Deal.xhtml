@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>G-BUY::Nouveau Deal</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Espace d'administration</h1>
+
+            </hgroup>
+            <article role="main">
+                <div class="post">
+                    <h2>Modifier un deal</h2>
+                </div>
+                <div class="clear"></div>
+                <h:form class="c-form">
+                    <div class="col_6" >
+                        <h:outputLabel for="titre" value="Titre : *" />  
+                        <p:inputText id="titre" value="#{beanedit.deal.titre}" label="Titre" />  
+
+                        <h:outputLabel for="description" value="Description : *" />  
+                        <p:inputText id="description" value="#{beanedit.deal.description}" label="Description" />  
+
+                        <h:outputLabel for="prixhabituel" value="Prix Habituel : *" />  
+                        <p:inputText id="prixhabituel" value="#{beanedit.deal.prixHabituel}" label="Prix Habituel" />  
+
+                        <h:outputLabel for="prix" value="Prix: *" />  
+                        <p:inputText id="prix" value="#{beanedit.deal.prix}" label="Prix" />  
+
+                        <h:outputLabel for="dateExp" value="Date d'expiration: *" />  
+                        <p:inputText id="dateExp" value="#{beanedit.deal.dateExp}" label="Date d'expiration" />  
+
+                        <h:outputLabel for="dateAjout" value="Date d'ajout: *" />  
+                        <p:inputText id="dateAjout" value="#{beanedit.deal.dateAjout}" label="Date d'ajout" />  
+
+                        <h:outputLabel for="Heur_exp" value="Heure d'expiration: " />  
+                        <p:inputText id="Heur_exp" value="#{beanedit.deal.heurexp}" label="Heure d'expiration" /> 
+
+                        <h:outputLabel for="Minutes_exp" value="Minute d'expiration: " />  
+                        <p:inputText id="Minutes_exp" value="#{beanedit.deal.minutesexp}" label="Minute d'expiration" /> 
+
+                        <h:outputLabel for="condition" value="Condition: " />  
+                        <p:inputText id="condition" value="#{beanedit.deal.conditions}" label="Condition" />  
+
+                    </div>
+                  <div class="col_6" >
+                        <h:outputLabel for="image" value="Image: " />  
+                        <p:inputText id="image" value="#{beanedit.deal.image}" label="Image" />  
+
+                        <h:outputLabel for="video" value="Video: " />  
+                        <p:inputText id="video" value="#{beanedit.deal.video}" label="Video" />  
+
+                        <h:outputLabel for="tags" value="Tags: " />  
+                        <p:inputText id="tags" value="#{beanedit.deal.tags}" label="Tags" />  
+
+                        <h:outputLabel for="adresse" value="Adresse: " />  
+                        <p:inputText id="adresse" value="#{beanedit.deal.adresse}" label="Adresse" />  
+
+                        <h:outputLabel for="ville" value="Ville: *" />  
+                        <p:inputText id="ville" value="#{beanedit.deal.ville}" label="Ville" /> 
+
+                        <h:outputLabel for="pays" value="Pays: *" />  
+                        <p:inputText id="pays" value="#{beanedit.deal.pays}" label="Pays" /> 
+
+                        <h:outputLabel for="codepostale" value="Code Postale: " />  
+                        <p:inputText id="codepostale" value="#{beanedit.deal.codePostale}" label="Code Postale" /> 
+
+                        <h:outputLabel for="cadeau" value="Cadeau: " />  
+                        <p:inputText id="cadeau" value="#{beanedit.deal.cadeau}" label="Cadeau" /> 
+
+                        <div>
+                            <h:outputLabel for="prestataire" value="Prestataire"  />
+                            <h:selectOneMenu id="prestataire"  value="#{beanedit.prestataireselected}">
+                                <f:selectItem itemLabel="Choisir un prestataire"  />
+                                <f:selectItems value="#{beanedit.listprestataire}" var="p" itemValue="#{p.idprestataire}" itemLabel="#{p.nom}" >
+                                    
+                                </f:selectItems>
+                            </h:selectOneMenu>
+                        </div>
+                        <div>
+                            <h:outputLabel for="categorie" value="Categorie: *" />
+                            <h:selectOneMenu id="categorie" value="#{dealbean.categorieselected}" >
+                                <f:selectItem itemLabel="Choisir une categorie" itemValue=""/>
+                                <f:selectItems value="#{beanedit.listcategorie}" var="c" itemValue="#{c.idcategorie}" itemLabel="#{c.nom}">
+                                </f:selectItems>                              
+                            </h:selectOneMenu>                            
+                        </div>
+
+                    </div>
+                    <div class="clear"></div>
+                   
+                        <center><p:commandButton value="Modifier le deal"
+                                                 action="#{beanedit.doeditDeal()}" 
+                                                 styleClass="button left" /></center>  
+                   
+                </h:form>
+            </article>
+        </section> <!-- // banner ends -->
+        <section class="container">
+
+            <div class="columns">
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
+                        <figcaption>
+                            <h3>Micro-formatted HTML5</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <a href="#">volutpat vitae nisi.</a> Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/sports/" alt="Lorem ipsum dolor..." class="alt-col" />
+                        <figcaption>
+                            <h3>Responsive</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/people/" alt="Lorem ipsum dolor..." />
+                        <figcaption>
+                            <h3>Pure CSS3</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <strong>volutpat vitae nisi. Nulla luctus</strong> lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+                <article>
+                    <figure>
+                        <img src="http://lorempixel.com/210/140/nightlife/" alt="Lorem ipsum dolor..." class="alt-col" />
+                        <figcaption>
+                            <h3>Browser compatible</h3>
+                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
+                        </figcaption>
+                    </figure>
+                </article>
+            </div> <!-- //.columns -->
+            <ul class="thumb-rotator">
+                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
+            </ul>
+
+        </section>
+        <ui:include src="commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>                
