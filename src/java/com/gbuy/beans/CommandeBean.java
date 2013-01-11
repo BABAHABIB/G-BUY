@@ -59,6 +59,7 @@ public class CommandeBean {
        
         findbonachatsbyiduser();
 
+
     }
 
     public BonAchat getBonachat() {
@@ -131,7 +132,7 @@ public class CommandeBean {
         user = gsonuser.fromJson(reponseuser, Utilisateur.class);
     }
     
-    public void addcommandeconnecte(Integer idbonachat){
+    public void addcommandeconnecte(){
     
         
         commande.setIddeal(deal);
@@ -143,12 +144,14 @@ public class CommandeBean {
     String datee=dateformat.format(new Date());
     commande.setDate(datee);
     
+    System.out.println(commande.toString());
+    
     
     }
     
     
     public void addcommandenonconnecte(){
-    commande.setIddeal(deal);
+    commande.setIddeal(deal);  
     }
     
 }
