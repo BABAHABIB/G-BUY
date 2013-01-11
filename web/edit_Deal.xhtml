@@ -52,10 +52,10 @@ and open the template in the editor.
                         <p:inputText id="prix" value="#{beanedit.deal.prix}" label="Prix" />  
 
                         <h:outputLabel for="dateExp" value="Date d'expiration: *" />  
-                        <p:inputText id="dateExp" value="#{beanedit.deal.dateExp}" label="Date d'expiration" />  
+                        <p:inputMask id="dateExp" value="#{beanedit.deal.dateExp}" label="Date d'expiration" mask="99/99/9999" />  
 
                         <h:outputLabel for="dateAjout" value="Date d'ajout: *" />  
-                        <p:inputText id="dateAjout" value="#{beanedit.deal.dateAjout}" label="Date d'ajout" />  
+                        <p:inputMask id="dateAjout" value="#{beanedit.deal.dateAjout}" label="Date d'ajout" mask="99/99/9999" />  
 
                         <h:outputLabel for="Heur_exp" value="Heure d'expiration: " />  
                         <p:inputText id="Heur_exp" value="#{beanedit.deal.heurexp}" label="Heure d'expiration" /> 
