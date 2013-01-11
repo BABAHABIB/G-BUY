@@ -111,14 +111,12 @@ and open the template in the editor.
                         </div>
 
                     </div>
-                    <div class="clear"></div><!--
-                    <c:if test="#{dealbean.deal.iddeal != null}" >
-                        <center><p:commandButton value="Modifier le deal" styleClass="button left" /></center>  
-                    </c:if>
-                    <c:if test="#{dealbean.deal.iddeal == null}" >-->
-                        <center><h:commandButton value="cree Deal" action="#{dealbean.addDeal()}" styleClass="button left" /></center>
+                    <div class="clear"></div>
+
+                    <c:if test="#{dealbean.deal.iddeal == null}" >
+                        <center><h:commandButton value="Cree Deal" action="#{dealbean.addDeal()}" styleClass="button left" /></center>
                         
-<!--                    </c:if>-->
+                    </c:if>
                 </h:form>
             </article>
         </section> <!-- // banner ends -->
