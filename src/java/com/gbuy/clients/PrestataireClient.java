@@ -7,11 +7,11 @@ package com.gbuy.clients;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
-import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:PrestataireFacadeREST
- * [prestataires]<br> USAGE:
+ * [prestataires]<br>
+ *  USAGE:
  * <pre>
  *        PrestataireClient client = new PrestataireClient();
  *        Object response = client.XXX(...);
@@ -19,11 +19,9 @@ import javax.ejb.Stateless;
  *        client.close();
  * </pre>
  *
- * @author Sony
+ * @author Nihad
  */
-@Stateless
 public class PrestataireClient {
-
     private WebResource webResource;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/G-BUY-REST/webresources";
@@ -51,6 +49,18 @@ public class PrestataireClient {
 
     public <T> T findAll_JSON(Class<T> responseType) throws UniformInterfaceException {
         WebResource resource = webResource;
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public <T> T findByNom_XML(Class<T> responseType, String nom) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("prestataire/{0}", new Object[]{nom}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
+
+    public <T> T findByNom_JSON(Class<T> responseType, String nom) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("prestataire/{0}", new Object[]{nom}));
         return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
@@ -97,4 +107,5 @@ public class PrestataireClient {
     public void close() {
         client.destroy();
     }
+    
 }

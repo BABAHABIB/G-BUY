@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <h:head>
+        <title>G-BUY::Editer Prestataire</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Espace d'administration</h1>
+
+            </hgroup>
+            <article role="main">
+                <div class="post">
+                    <h2>Modifier un prestataire</h2>
+                </div>
+                <div class="clear"></div>
+                <h:form class="c-form">
+                    <div class="col_6" >
+                        <h:outputLabel for="nom" value="Nom : *" />  
+                        <p:inputText id="nom" value="#{PrestataireBeanEdit.prestataire.nom}" label="Nom" />  
+
+                        <h:outputLabel for="description" value="Description : " />  
+                        <p:inputText id="description" value="#{PrestataireBeanEdit.prestataire.description}" label="Description" />  
+
+                        <h:outputLabel for="adresse" value="adresse : " />  
+                        <p:inputText id="adresse" value="#{PrestataireBeanEdit.prestataire.adresse}" label="Adresse" />  
+
+                        <h:outputLabel for="ville" value="ville : " />  
+                        <p:inputText id="ville" value="#{PrestataireBeanEdit.prestataire.ville}" label="Ville" />  
+
+                        <h:outputLabel for="pays" value="pays: " />  
+                        <p:inputText id="pays" value="#{PrestataireBeanEdit.prestataire.pays}" label="Pays" />  
+                        
+                        <h:outputLabel for="codepostale" value="Code Postale: " />  
+                        <p:inputText id="codepostale" value="#{PrestataireBeanEdit.prestataire.codePostale}" label="Code Postale" /> 
+
+                        <h:outputLabel for="telephone" value="telephone: " />  
+                        <p:inputText id="telephone" value="#{PrestataireBeanEdit.prestataire.telephone}" label="Téléphone"  />  
+
+                        <h:outputLabel for="image" value="image: " />  
+                        <p:inputText id="image" value="#{PrestataireBeanEdit.prestataire.image}" label="Image" /> 
+
+                       
+
+                    </div>
+                 
+                    <div class="clear"></div>
+                   
+                    <center><p:commandButton value="Valider" action="#{PrestataireBeanEdit.doeditPrestataire()}" styleClass="button left" /></center>
+                                               
+                                                   
+                   
+                </h:form>
+            </article>
+        </section> <!-- // banner ends -->
+        <section class="container">
+
+            
+
+        </section>
+        <ui:include src="commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>                

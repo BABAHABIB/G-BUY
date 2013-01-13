@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>G-BUY::Nouveau Prestataire</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Espace d'administration</h1>
+
+            </hgroup>
+            <article role="main">
+                <div class="post">
+                    <h2>Créer un Nouveau prestataire</h2>
+                </div>
+                <div class="clear"></div>
+                <h:form class="c-form">
+                    <div class="col_12">
+                        <p:messages id="messages"  autoUpdate="true" closable="true" />  
+                    </div>
+                    <div class="col_6" >
+                        <h:outputLabel for="nom" value="nom : *" />  
+                        <p:inputText id="nom" value="#{PrestataireBean.prestataire.nom}" label="Nom" />  
+
+                        <h:outputLabel for="description" value="Description : " />  
+                        <p:inputText id="description" value="#{PrestataireBean.prestataire.description}" label="Description" />  
+
+                        <h:outputLabel for="adresse" value="adresse : " />  
+                        <p:inputText id="adresse" value="#{PrestataireBean.prestataire.adresse}" label="Adresse" />  
+
+                        <h:outputLabel for="ville" value="ville " />  
+                        <p:inputText id="ville" value="#{PrestataireBean.prestataire.ville}" label="Ville" />  
+                        
+                        <h:outputLabel for="pays" value="pays " />  
+                        <p:inputText id="pays" value="#{PrestataireBean.prestataire.pays}" label="Pays" /> 
+                        
+                        <h:outputLabel for="cp" value="cp " />  
+                        <p:inputText id="cp" value="#{PrestataireBean.prestataire.codePostale}" label="Code postale" /> 
+                        
+ 
+                        <h:outputLabel for="telephone" value="telephone: " />  
+                        <p:inputText id="telephone" value="#{PrestataireBean.prestataire.telephone}" label="Téléphone" /> 
+
+                        <h:outputLabel for="image" value="image: " />  
+                        <p:inputText id="image" value="#{PrestataireBean.prestataire.image}"/>
+
+                    </div>
+                    <div class="clear"></div>
+                    
+                    <center><h:commandButton update="messages" value="Valider" actionListener="#{PrestataireBean.addPrestataire}" styleClass="button left" /></center>
+                        
+                    
+                </h:form>
+            </article>
+        </section> <!-- // banner ends -->
+        <section class="container">
+
+           
+            
+
+        </section>
+        <ui:include src="commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>                

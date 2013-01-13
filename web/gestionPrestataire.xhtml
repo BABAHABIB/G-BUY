@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>G-BUY::Gestion prestataires</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Espace d'administration</h1>
+            </hgroup>
+            <article role="main">
+                <center>
+                    <div class="post">
+                        <h2>Gestion des prestataires</h2>
+                    </div>
+                </center> 
+                <div class="clear">  </div>
+                <br>
+                    
+                </br>
+                
+                 <br>
+                    
+                </br>
+                <div class="clear">  </div>
+               <h4>
+                  <h:form>
+                      <h:commandLink action="NewPrestataire.xhtml" >Ajouter un nouveau prestataire</h:commandLink> 
+                </h:form>
+                </h4>
+                <div class="clear">  </div>  
+                <h:form >  
+                    <p:dataTable var="prestataire" value="#{PrestataireBean.listprestataire}"> 
+
+                        <p:column headerText="Titre">  
+                            <h:outputText value="#{prestataire.nom}" />  
+                        </p:column>  
+
+                        <p:column headerText="Description">  
+                            <h:outputText value="#{prestataire.description}" />  
+                        </p:column>  
+
+                        <p:column headerText="Modifier / Supprimer">  
+                            <center>
+                                  
+                                <p:commandButton value="Modifier" action="#{PrestataireBeanEdit.modifier()}" style="color: blue" >
+                                    <f:param  value="#{prestataire.idprestataire}" binding="#{PrestataireBeanEdit.id_prest}" />
+                                </p:commandButton>  /  
+                                <p:commandButton  actionListener="#{PrestataireBean.supprimerPrestataire}"   value="Supprimer" style="color: red" >
+                                    <f:param  value="#{prestataire.idprestataire}" binding="#{PrestataireBean.id_prest}" />
+                                </p:commandButton>    
+                            </center>
+                        </p:column>  
+
+                    </p:dataTable> 
+
+                </h:form> 
+
+            </article>
+        </section> 
+        <!-- // banner ends -->
+
+        <ui:include src="commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>  
