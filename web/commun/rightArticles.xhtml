@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <div id ="rightArticle" >
+        <h:form>
+            <c:forEach items="#{bestDealBean.dealInteressant}" var="deal" >
+                <div class="columns">
+                    <article>
+                        <figure>
+                            <h3><h:outputText value="#{deal.titre}" /></h3>
+                            <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
+                            <figcaption>
+                                <p>
+                                    <h:outputText value="#{deal.description}" />
+                                    <h:commandLink value="Voir le Deal" action="#{dealTraitementBean.afficherDetail(deal.iddeal)}" class="more-link" /> 
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </article>
+                </div>
+            </c:forEach>
+        </h:form>
+    </div>
+</ui:composition>

@@ -1,0 +1,22 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:c="http://java.sun.com/jsp/jstl/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets">
+    <c:if test="#{not ratingBean.estRated(bestDealBean.dealDuJour.iddeal)}" >
+        <div id="gButton">
+            <h:form>
+                <p:commandLink actionListener="#{ratingBean.rate}">
+                    <f:param value="#{bestDealBean.dealDuJour.iddeal}" binding="#{ratingBean.iddeal}" />
+                    <h:graphicImage name="G.png" library="images" />Give it a Push
+                </p:commandLink>   
+            </h:form>
+        </div>
+    </c:if>
+    <c:if test="#{ratingBean.estRated(bestDealBean.dealDuJour.iddeal)}" >
+        <div id="gButton">
+            <h:graphicImage name="gPressed.png" library="images" />Thanks!
+        </div>
+    </c:if>
+</ui:composition>

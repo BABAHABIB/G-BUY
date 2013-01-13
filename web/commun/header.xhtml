@@ -1,58 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-    <h:head>
 
-    </h:head>
-    <body>
-        <ui:composition>
-            <header class="clearfix">
-                <div class="container">
-                    <a id="logo" href="index.html"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
-                    <ul class="social-icons">
-                        <li><a href="#" class="icon">PARRAINER ET GAGNER 10 EUR</a></li>
-                    </ul>
-                    <nav class="clearfix">
-                        <ul role="navigation">
-                            <li>
-                                <a href="index.xhtml">Home</a>
-                            </li>
-                            <li>
-                                <a href="hotel.xhtml">Hotel</a>
-                            </li>
-                            <li>
-                                <a href="voyage.xhtml">Voyage</a>
-                            </li>
-                                                       
-                            <li>
-                                <a href="restauration.xhtml">Restauration</a>
-                            </li>
-                            <li>
-                                <a href="login.xhtml">Connexion</a>
-                            </li>
-                            <li>
-                                <a href="register.xhtml">Inscription</a>
-                            </li>
-                            <li>
-                                <a href="contactus.xhtml">Contact us</a>
-                            </li>
-                        </ul>
-                    </nav>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <header class="clearfix">
+
+        <div class="container">
+            <c:if test="#{utilisateurBean.estConnecter()}" >
+                <div class="right">
+                    <h:form>
+                        Bienvenue
+                        <b> <h:outputText value="#{utilisateurBean.userFullName}" /> </b>
+                        <h:commandLink value="Déconnexion" action="#{utilisateurBean.deconnexion()}" />
+                    </h:form>
                 </div>
-            </header>
-            <div class="left">
-                <h:form>
-                    <h:inputText value="#{search.tag}"  size="35"
-                                 onfocus="if(this.value == 'Trouver un Deal...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Trouver un Deal...'; }"/>
-                    <h:commandButton value="Rechercher" action="#{search.search()}" class="hide" />
-                </h:form>
-            </div>
-        </ui:composition>
-    </body>
-</html>
+            </c:if>
+            <a id="logo" href="index.xhtml"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
+            <ul class="social-icons">
+
+                <div class="left">
+                    <h:form>
+                        <h:inputText value="#{search.tag}"  size="35"
+                                     onfocus="if(this.value == 'Trouver un Deal...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Trouver un Deal...'; }"/>
+                        <h:commandButton value="Rechercher" action="#{search.search()}" class="hide" />
+                    </h:form>
+                </div>
+            </ul>
+            <nav class="clearfix">
+                <ul role="navigation">
+                    <li><h:form><h:commandLink value="Home" action="index" /></h:form> </li>
+                    <li><h:form><h:commandLink value="Hotel" action="hotel" /></h:form> </li>
+                    <li><h:form><h:commandLink value="Voyage" action="voyage" /></h:form> </li>
+                    <li><h:form><h:commandLink value="Restauration" action="restauration" /></h:form> </li>
+                    <c:if test="#{!utilisateurBean.estConnecter()}" >
+                        <li><h:form><h:commandLink value="Connexion" action="login" /></h:form> </li>
+                        <li><h:form><h:commandLink value="Inscription" action="register" /></h:form> </li>
+                    </c:if>
+                    <c:if test="#{utilisateurBean.estAdmin()}" >
+                        <li><h:form><h:commandLink value="Administration" action="administration" /></h:form></li>
+                    </c:if>
+                </ul>
+            </nav>
+        </div>
+    </header>
+</ui:composition>
