@@ -41,12 +41,12 @@ public class Deal implements Serializable {
     private Integer iddeal;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 150)
     @Column(name = "titre")
     private String titre;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 45)
+    @Size(min = 1, max = 500)
     @Column(name = "description")
     private String description;
     @Basic(optional = false)
@@ -71,19 +71,19 @@ public class Deal implements Serializable {
     private Integer heurexp;
     @Column(name = "Minutes_exp")
     private Integer minutesexp;
-    @Size(max = 45)
+    @Size(max = 150)
     @Column(name = "conditions")
     private String conditions;
-    @Size(max = 45)
+    @Size(max = 200)
     @Column(name = "image")
     private String image;
-    @Size(max = 45)
+    @Size(max = 200)
     @Column(name = "video")
     private String video;
-    @Size(max = 45)
+    @Size(max = 100)
     @Column(name = "tags")
     private String tags;
-    @Size(max = 45)
+    @Size(max = 80)
     @Column(name = "adresse")
     private String adresse;
     @Size(max = 45)

@@ -104,7 +104,7 @@ public class PrestataireBean {
                 Gson gson = new Gson();
                 client.create_JSON(gson.toJson(prestataire));
                 try {
-                    FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("admin/gestionPrestataire.xhtml");
                 } catch (IOException ex) {
                     Logger.getLogger(PrestataireBean.class.getName()).log(Level.SEVERE, null, ex);
                 }

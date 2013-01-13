@@ -81,7 +81,7 @@ public class PrestataireBeanEdit {
         prestataireclient.edit_JSON(gson.toJson(prestataire));
         prestataireclient.close();
         System.out.println("DoModifier");
-        return "Administration.xhtml";
+        return "gestionPrestataire.xhtml";
     }
 
     //getter - setter

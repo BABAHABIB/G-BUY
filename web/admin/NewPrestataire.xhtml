@@ -14,16 +14,16 @@ and open the template in the editor.
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
 
-        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="kickstart.css" library="css"/>
         <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
         <h:outputStylesheet name="style.css" library="css"/>
         <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
         <h:outputStylesheet name="main.css" library="css"/>
-
         <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
     </h:head>
     <h:body>
-        <ui:include src="commun/header.xhtml" />
+        <ui:include src="../commun/header.xhtml" />
 
         <section role="banner">
             <hgroup>
@@ -80,7 +80,7 @@ and open the template in the editor.
             
 
         </section>
-        <ui:include src="commun/footer.xhtml"/>
+        <ui:include src="../commun/footer.xhtml"/>
         <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
         <h:outputScript  name="script.js" library="js" />
     </h:body>
