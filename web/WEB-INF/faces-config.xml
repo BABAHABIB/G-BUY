@@ -57,8 +57,8 @@
         </navigation-case>
         
         <navigation-case>
-            <from-outcome>restauration</from-outcome>
-            <to-view-id>/restauration.xhtml</to-view-id>
+            <from-outcome>tout</from-outcome>
+            <to-view-id>/tout.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
         

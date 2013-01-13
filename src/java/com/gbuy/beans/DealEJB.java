@@ -7,8 +7,12 @@ package com.gbuy.beans;
 import com.gbuy.clients.DealsClient;
 import com.gbuy.entities.Deal;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.util.ArrayList;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -55,6 +59,46 @@ public class DealEJB {
         }
 
         return 0;
+    }
+
+    public List<Deal> categorieDeal(Integer idCategorie) {
+        List<Deal> list = new ArrayList<Deal>();
+        String reponse = dealClient.findByCategorie_JSON(String.class, idCategorie.toString());
+        JsonObject jObject = new JsonParser().parse(reponse).getAsJsonObject();
+        try{
+                JsonArray jArray = jObject.getAsJsonArray("deal");
+                Gson g = new Gson();
+                for(JsonElement elem : jArray){
+                    Deal d = g.fromJson(elem, Deal.class);
+                    list.add(d);
+                }
+                return list;
+                
+        }catch(Exception e){
+                  
+        }
+        return null;
+
+    }
+    
+       public List<Deal> tousDeal() {
+        List<Deal> list = new ArrayList<Deal>();
+        String reponse = dealClient.findAll_JSON(String.class);
+        JsonObject jObject = new JsonParser().parse(reponse).getAsJsonObject();
+        try{
+                JsonArray jArray = jObject.getAsJsonArray("deal");
+                Gson g = new Gson();
+                for(JsonElement elem : jArray){
+                    Deal d = g.fromJson(elem, Deal.class);
+                    list.add(d);
+                }
+                return list;
+                
+        }catch(Exception e){
+                  
+        }
+        return null;
+
     }
 
     public int economie(Deal d) {

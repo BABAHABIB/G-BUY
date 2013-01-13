@@ -49,19 +49,19 @@ public class CommandeBean {
     BonAchatClient bonachatclientchoisi;
 
     public CommandeBean() {
-        deal = new Deal();
-        dealclient = new DealsClient();
-        idDeal = "1";
-        findDealById();
-        commande = new Commande();
-        iduser = 1;
-        user = new Utilisateur();
-        userclient = new UtilisateurClient();
-        bonachat = new BonAchat();
-        bonachatclient = new BonAchatClient();
+       // deal = new Deal();
+        //dealclient = new DealsClient();
+   
+        //findDealById();
+        //commande = new Commande();
+    
+        //user = new Utilisateur();
+        //userclient = new UtilisateurClient();
+        //bonachat = new BonAchat();
+       // bonachatclient = new BonAchatClient();
 
+        //findbonachatsbyiduser();
         findbonachatsbyiduser();
-
 
     }
 

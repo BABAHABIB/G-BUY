@@ -57,7 +57,7 @@ and open the template in the editor.
                             <h3>Prestataire : <h:outputText value="#{bestDealBean.dealDuJour.prestataire.nom}" /></h3>
                             <ul>
                                 <li> <h:outputText value="#{bestDealBean.dealDuJour.prestataire.description}" /></li>
-                                <li> <h:outputText value="#{bestDealBean.dealDuJour.prestataire.adresse}" /></li>
+
                                 <li>  <h:outputText value="#{bestDealBean.dealDuJour.prestataire.pays}" /></li>
                             </ul>
                         </p>
@@ -67,7 +67,7 @@ and open the template in the editor.
                         <h2>Prix <h:outputText value="#{bestDealBean.dealDuJour.prix}" /></h2>   
                         <h4 style="color: red;"><strike>Prix Habitule : <h:outputText value="#{bestDealBean.dealDuJour.prixHabituel}" /></strike></h4>                          
                         <h4 class="center" style="background-color: #6DB9FF; border: 2px #444 solid;">Remise <h:outputText value="#{bestDealBean.dealDuJour.prixHabituel - bestDealBean.dealDuJour.prix}" /></h4>                  
-                        <h4 class="center" style="background-color: #fe57a1; border: 2px #444 solid;">Economie <h:outputText value="#{bestDealBean.dealDuJour.prix * 100 / bestDealBean.dealDuJour.prixHabituel} %" /></h4>
+                        <h4 class="center" style="background-color: #fe57a1; border: 2px #444 solid;">Economie <h:outputText value="#{dealTraitementBean.economie(bestDealBean.dealDuJour)} %" /></h4>
                         <c:if test="#{bestDealBean.aCadeau()}" >
                             <div id="cadeau">
                                 <h:graphicImage name="cadeau.jpg" library="images" width="80px" height="50px" class="align-left" />
@@ -84,12 +84,12 @@ and open the template in the editor.
 
                     </div>
                     <div class="clear"></div>
-                     <h:form>
+                    <h:form>
                         <h:commandLink value="JE PROFITE" class="button left" action="#{commander.afficherDeatailCommande(bestDealBean.dealDuJour.iddeal)}" />
                     </h:form>
                 </div>        
                 <aside role="complementary">
-                    <a href="#demo-url"><h:graphicImage name="hotel.jpg" library="images" /></a>
+                    <a href="#demo-url"><h:graphicImage url="#{bestDealBean.dealDuJour.image}" /></a>
                 </aside>
                 <aside role="complementary">
                     <h:form id="map">

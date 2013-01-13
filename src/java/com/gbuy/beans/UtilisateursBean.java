@@ -157,7 +157,7 @@ public class UtilisateursBean {
             HttpSession session = (HttpSession) eContext.getSession(true);
             session.setAttribute("user", user);
 
-            eContext.redirect("commander.xhtml");
+            eContext.redirect("paiment/commander.xhtml");
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Login ou mot de passe incorrecte !", "Login ou mot de passe incorrecte !"));
         }

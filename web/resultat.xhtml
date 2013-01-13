@@ -30,10 +30,8 @@
         <section class="container clearfix">
 
             <aside role="complementary">
-                <h2>Addtional info</h2>
-                <p>Vestibulum viverra <strong>consectetur enim vel rutrum</strong>. Mauris hendrerit sodales congue. Etiam malesuada nibh id sapien tincidunt vitae rhoncus nunc tincidunt.</p>
-                <p>Curabitur posuere libero sit amet est tristique egestas. Duis porta tempor tristique. Nam in erat sed leo lacinia vestibulum vitae in ipsum.</p>
-                <p><a href="#">Jump now <span class="icon">:</span></a></p>
+                <h2></h2>
+                
             </aside>
 
             <article class="post content">
@@ -43,7 +41,7 @@
                             <li>
                                 <h2><a href="page.html"> <h:outputText value="#{deal.titre}" /> </a></h2>
                                 <p class="meta">Le  <h:outputText value="#{deal.dateAjout}" /> | Exp:  <h:outputText value="#{deal.dateExp}" /> <a href="#">  <h:outputText value="#{deal.categorie.nom}" /> </a></p>
-                                <img src="http://lorempixel.com/400/180/fashion/" alt="Lorem ipsum dolor..." />
+                                <img src="#{deal.image}" />
                                 <p>  <h:outputText value="#{deal.description}" /> </p>
 
                                 <h:commandLink value="Voir le Deal" action="#{dealTraitementBean.afficherDetail(deal.iddeal)}" class="more-link" /> 

@@ -7,6 +7,7 @@ package com.gbuy.clients;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
+import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:PrestataireFacadeREST
@@ -21,6 +22,7 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Nihad
  */
+@Stateless
 public class PrestataireClient {
     private WebResource webResource;
     private Client client;

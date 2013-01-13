@@ -39,17 +39,31 @@ public class RechercherBean {
     public String search() {
         if (!tag.equals(RECHERCHER) && !tag.isEmpty()) {
             dealsClient = new DealsClient();
-            String reponse = dealsClient.search_JSON(String.class, tag);
+            String reponse = null;
+            try {
+                reponse = dealsClient.search_JSON(String.class, tag);
+            } catch (Exception e) {
+            }
+           
             dealsClient.close();
             if (reponse != null && !reponse.isEmpty()) {
                 System.out.println(reponse);
                 Gson g = new Gson();
                 JsonParser parser = new JsonParser();
                 JsonObject jObject = parser.parse(reponse).getAsJsonObject();
-                JsonArray jArray = jObject.getAsJsonArray("deal");
-                deals.clear();
-                for (JsonElement elem : jArray) {
-                    deals.add(g.fromJson(elem, Deal.class));
+
+                try {
+                    JsonArray jArray = jObject.getAsJsonArray("deal");
+                    deals.clear();
+                    for (JsonElement elem : jArray) {
+                        deals.add(g.fromJson(elem, Deal.class));
+                    }
+                } catch (Exception e) {
+                    deals.clear();
+                     //System.out.println("Resultat recherche : " + reponse);
+                    Deal d = g.fromJson(reponse, Deal.class);
+                    deals.add(d);
+                     //System.out.println("Resultat recherche : " + deals.get(0).toString());
                 }
                 //System.out.println("Deals List" + deals.toString());
                 return "searchsuccess";

@@ -10,7 +10,7 @@
             <c:forEach items="#{bestDealBean.nouveauxDeal}" var="deal" >
                 <article>
                     <figure>
-                        <img src="http://lorempixel.com/210/140/city/" alt="Lorem ipsum dolor..." />
+                        <img src="#{deal.image}" />
                         <figcaption>
                             <h3><h:outputText value="#{deal.titre}" /></h3>
                             <p>

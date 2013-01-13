@@ -40,7 +40,7 @@ and open the template in the editor.
             </hgroup>
 
             <article role="main" class="clearfix">
-                <div class="post">
+                <div class="post" style="min-height: 600px;">
                     <h2><h:outputText value="#{dealTraitementBean.deal.titre}" /></h2>
                     <p><a href="#"><b>>><h:outputText value="#{dealTraitementBean.deal.categorie.nom}" /></b></a></p>
                     <div  class="col_7">
@@ -53,14 +53,7 @@ and open the template in the editor.
                             <h:outputText value="#{dealTraitementBean.deal.conditions}" />
                         </p>
 
-                        <p>
-                            <h3>Prestataire : <h:outputText value="#{dealTraitementBean.deal.prestataire.nom}" /></h3>
-                            <ul>
-                                <li> <h:outputText value="#{dealTraitementBean.deal.prestataire.description}" /></li>
-                                <li> <h:outputText value="#{dealTraitementBean.deal.prestataire.adresse}" /></li>
-                                <li>  <h:outputText value="#{dealTraitementBean.deal.prestataire.pays}" /></li>
-                            </ul>
-                        </p>
+                       
 
                     </div>
                     <div class="col_5">
@@ -89,7 +82,7 @@ and open the template in the editor.
                     </h:form>
                 </div>        
                 <aside role="complementary">
-                    <a href="#demo-url"><h:graphicImage name="hotel.jpg" library="images" /></a>
+                    <a href="#demo-url"><h:graphicImage url="#{dealTraitementBean.deal.image}" /></a>
                 </aside>
                 <aside role="complementary">
                     <h:form id="map">

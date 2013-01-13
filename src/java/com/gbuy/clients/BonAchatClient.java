@@ -7,6 +7,7 @@ package com.gbuy.clients;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
+import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:BonAchatFacadeREST
@@ -20,6 +21,7 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Sony
  */
+@Stateless
 public class BonAchatClient {
 
     private WebResource webResource;

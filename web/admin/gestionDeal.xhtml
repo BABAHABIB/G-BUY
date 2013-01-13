@@ -14,7 +14,7 @@ and open the template in the editor.
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
 
-          <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart.css" library="css"/>
         <h:outputStylesheet name="kickstart-grid.css" library="css"/>
         <h:outputStylesheet name="kickstart-forms.css" library="css" />
         <h:outputStylesheet name="style.css" library="css"/>
@@ -48,25 +48,29 @@ and open the template in the editor.
                             <h:outputText value="#{deal.titre}" />  
                         </p:column>  
 
-                        <p:column headerText="Description">  
-                            <h:outputText value="#{deal.description}" />  
+                        <p:column headerText="Condition">  
+                            <h:outputText value="#{deal.conditions}" />  
                         </p:column>  
 
-                        <p:column headerText="Date_ajout">  
-                            <h:outputText value="#{deal.dateAjout}" />  
+                        <p:column headerText="Date Expiration">  
+                            <h:outputText value="#{deal.dateExp}" />  
                         </p:column>  
 
-                        <p:column headerText="Modifier / Supprimer">  
-                            <center>
-                                <p:growl id="growl" showDetail="true" sticky="true" />  
-                                <p:commandButton value="Modifier" action="#{beanedit.modifier()}" >
-                                    <f:param  value="#{deal.iddeal}" binding="#{beanedit.id_deal}" />
-                                </p:commandButton>  /  
-                                <p:commandButton  actionListener="#{dealbean.supprimerDeal()}" update="growl"  value="Supprimer" >
-                                    <f:param  value="#{deal.iddeal}" binding="#{dealbean.id_deal}" />
-                                </p:commandButton>    
-                            </center>
+                        <p:column headerText="Modification">  
+                            <p:commandButton value="Modifier" action="#{beanedit.modifier()}" style="color: blue" >
+                                <f:param  value="#{deal.iddeal}" binding="#{beanedit.id_deal}" />
+                            </p:commandButton>
                         </p:column>  
+
+                        <p:column headerText="Suppression">  
+                            <p:commandButton  actionListener="#{dealbean.supprimerDeal()}" style="color: red;"  value="Supprimer" >
+                                <f:param  value="#{deal.iddeal}" binding="#{dealbean.id_deal}" />
+                            </p:commandButton>    
+                        </p:column>  
+
+
+
+
 
                     </p:dataTable> 
 

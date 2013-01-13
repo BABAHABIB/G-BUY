@@ -16,7 +16,7 @@
                     </h:form>
                 </div>
             </c:if>
-            <a id="logo" href="index.xhtml"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
+            <a id="logo" href="#"><h:graphicImage name="logo.png" library="images" width="200px" height="80px" /></a>
             <ul class="social-icons">
 
                 <div class="left">
@@ -32,7 +32,7 @@
                     <li><h:form><h:commandLink value="Home" action="index" /></h:form> </li>
                     <li><h:form><h:commandLink value="Hotel" action="hotel" /></h:form> </li>
                     <li><h:form><h:commandLink value="Voyage" action="voyage" /></h:form> </li>
-                    <li><h:form><h:commandLink value="Restauration" action="restauration" /></h:form> </li>
+                    <li><h:form><h:commandLink value="Tous les Deals" action="tout" /></h:form> </li>
                     <c:if test="#{!utilisateurBean.estConnecter()}" >
                         <li><h:form><h:commandLink value="Connexion" action="login" /></h:form> </li>
                         <li><h:form><h:commandLink value="Inscription" action="register" /></h:form> </li>
