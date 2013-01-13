@@ -11,8 +11,7 @@ import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:BonAchatFacadeREST
- * [bonachats]<br>
- *  USAGE:
+ * [bonachats]<br> USAGE:
  * <pre>
  *        BonAchatsClient client = new BonAchatsClient();
  *        Object response = client.XXX(...);
@@ -24,6 +23,7 @@ import javax.ejb.Stateless;
  */
 @Stateless
 public class BonAchatsClient {
+
     private WebResource webResource;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/G-BUY-REST/webresources";
@@ -109,5 +109,4 @@ public class BonAchatsClient {
     public void close() {
         client.destroy();
     }
-    
 }

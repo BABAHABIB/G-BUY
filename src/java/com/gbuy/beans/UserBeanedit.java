@@ -13,6 +13,8 @@ import com.google.gson.JsonParser;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,7 +28,7 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "userbeanedit")
 @SessionScoped
 public class UserBeanedit {
-    
+
     private List<Utilisateur> listuser;
     JsonParser parser = new JsonParser();
     private UIParameter id_user;
@@ -38,17 +40,17 @@ public class UserBeanedit {
     private String lselected;
 
     public UserBeanedit() {
-        
+
         userclient = new UtilisateurClient();
         user = new Utilisateur();
         listuser = new ArrayList<Utilisateur>();
         initlistuser();
         l = new ArrayList<String>();
-        l.add("Admin");
-        l.add("client");
+        l.add("ADMIN");
+        l.add("CLIENT");
     }
-    
-    public void initlistuser() {
+
+    private void initlistuser() {
 
         //--------List des Utilisateurs------------
         userclient = new UtilisateurClient();
@@ -62,7 +64,7 @@ public class UserBeanedit {
             listuser.add(u);
         }
     }
-    
+
     public void doedituser() throws IOException {
         System.out.println(lselected);
         userclient = new UtilisateurClient();
@@ -74,73 +76,74 @@ public class UserBeanedit {
             FacesContext.getCurrentInstance().getExternalContext().redirect("gestionUtilisateur.xhtml");
         } else {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Les mots de passe ne sont pas identiques !", "Les mots de passe ne sont pas identiques !"));
-           
         }
-        
     }
-    
-    public String modifier() {
+
+    public void modifier() {
         for (Utilisateur u : listuser) {
             if (u.getIdutilisateur() == Integer.parseInt(id_user.getValue().toString())) {
                 user = u;
-                return "user_edit.xhtml";
+                try {
+                    FacesContext.getCurrentInstance().getExternalContext().redirect("user_edit.xhtml");
+                } catch (IOException ex) {
+                    Logger.getLogger(DealBean.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
-        return null;
     }
-    
+
     public List<Utilisateur> getListuser() {
         return listuser;
     }
-    
+
     public void setListuser(List<Utilisateur> listuser) {
         this.listuser = listuser;
     }
-    
+
     public UIParameter getId_user() {
         return id_user;
     }
-    
+
     public void setId_user(UIParameter id_user) {
         this.id_user = id_user;
     }
-    
+
     public Utilisateur getUser() {
         return user;
     }
-    
+
     public void setUser(Utilisateur user) {
         this.user = user;
     }
-    
+
     public String getPassword1() {
         return password1;
     }
-    
+
     public void setPassword1(String password1) {
         this.password1 = password1;
     }
-    
+
     public String getPassword2() {
         return password2;
     }
-    
+
     public void setPassword2(String password2) {
         this.password2 = password2;
     }
-    
+
     public List<String> getL() {
         return l;
     }
-    
+
     public void setL(List<String> l) {
         this.l = l;
     }
-    
+
     public String getLselected() {
         return lselected;
     }
-    
+
     public void setLselected(String lselected) {
         this.lselected = lselected;
     }

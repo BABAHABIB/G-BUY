@@ -38,6 +38,18 @@ public class UtilisateurClient {
         webResource.path(java.text.MessageFormat.format("{0}", new Object[]{id})).delete();
     }
 
+    public <T> T findRatedDealByUserId_XML(Class<T> responseType, String id) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("rated/{0}", new Object[]{id}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
+
+    public <T> T findRatedDealByUserId_JSON(Class<T> responseType, String id) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("rated/{0}", new Object[]{id}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+    }
+
     public String countREST() throws UniformInterfaceException {
         WebResource resource = webResource;
         resource = resource.path("count");

@@ -7,11 +7,11 @@ package com.gbuy.clients;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.api.client.WebResource;
+import javax.ejb.Stateless;
 
 /**
  * Jersey REST client generated for REST resource:CommandeFacadeREST
- * [commandes]<br>
- *  USAGE:
+ * [commandes]<br> USAGE:
  * <pre>
  *        CommandeClient client = new CommandeClient();
  *        Object response = client.XXX(...);
@@ -21,7 +21,9 @@ import com.sun.jersey.api.client.WebResource;
  *
  * @author Sony
  */
+@Stateless
 public class CommandeClient {
+
     private WebResource webResource;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/G-BUY-REST/webresources";
@@ -125,5 +127,4 @@ public class CommandeClient {
     public void close() {
         client.destroy();
     }
-    
 }

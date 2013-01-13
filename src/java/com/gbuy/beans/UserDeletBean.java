@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
  */
 @ManagedBean(name="userbean")
 @RequestScoped
-public class UserBean {
+public class UserDeletBean {
 
     private UIParameter id_user;
     private Utilisateur user;
@@ -35,7 +35,7 @@ public class UserBean {
     private List<Utilisateur> listuser;
     JsonParser parser = new JsonParser();
     
-    public UserBean() {
+    public UserDeletBean() {
         
         userclient=new UtilisateurClient();
         user = new Utilisateur();
@@ -55,7 +55,7 @@ public class UserBean {
         }
     }
     
-     public void initlistuser(){
+     private void initlistuser(){
      
         //--------List des Utilisateurs------------
         userclient = new UtilisateurClient();

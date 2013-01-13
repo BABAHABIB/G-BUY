@@ -26,6 +26,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Newsletter.findAll", query = "SELECT n FROM Newsletter n")})
 public class Newsletter implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -91,5 +92,4 @@ public class Newsletter implements Serializable {
     public String toString() {
         return "com.gbuy.entities.Newsletter[ idnewsletter=" + idnewsletter + " ]";
     }
-    
 }

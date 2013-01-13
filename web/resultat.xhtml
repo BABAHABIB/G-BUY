@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>G-BUY  Resultat</title>
+        <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+        <section role="banner">
+            <hgroup>
+            </hgroup>
+            <article role="main" class="clearfix">
+                <div class="post">
+                    <h2>Resultat de la recherche...</h2>
+                    <p></p>
+                </div>
+            </article>
+        </section> <!-- // banner ends -->
+        <section class="container clearfix">
+
+            <aside role="complementary">
+                <h2>Addtional info</h2>
+                <p>Vestibulum viverra <strong>consectetur enim vel rutrum</strong>. Mauris hendrerit sodales congue. Etiam malesuada nibh id sapien tincidunt vitae rhoncus nunc tincidunt.</p>
+                <p>Curabitur posuere libero sit amet est tristique egestas. Duis porta tempor tristique. Nam in erat sed leo lacinia vestibulum vitae in ipsum.</p>
+                <p><a href="#">Jump now <span class="icon">:</span></a></p>
+            </aside>
+
+            <article class="post content">
+                <ul class="post-list">
+                    <h:form>
+                        <c:forEach items="#{search.deals}" var="deal"  >
+                            <li>
+                                <h2><a href="page.html"> <h:outputText value="#{deal.titre}" /> </a></h2>
+                                <p class="meta">Le  <h:outputText value="#{deal.dateAjout}" /> | Exp:  <h:outputText value="#{deal.dateExp}" /> <a href="#">  <h:outputText value="#{deal.categorie.nom}" /> </a></p>
+                                <img src="http://lorempixel.com/400/180/fashion/" alt="Lorem ipsum dolor..." />
+                                <p>  <h:outputText value="#{deal.description}" /> </p>
+
+                                <h:commandLink value="Voir le Deal" action="#{dealTraitementBean.afficherDetail(deal.iddeal)}" class="more-link" /> 
+                            </li>
+                        </c:forEach>
+                    </h:form>
+
+                </ul>
+            </article>
+        </section>
+        <ui:include src="commun/footer.xhtml" />
+
+    </h:body>
+</html>
+

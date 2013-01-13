@@ -28,6 +28,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Commande.findAll", query = "SELECT c FROM Commande c")})
 public class Commande implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -125,5 +126,4 @@ public class Commande implements Serializable {
     public String toString() {
         return "com.gbuy.entities.Commande[ idcommande=" + idcommande + " ]";
     }
-    
 }

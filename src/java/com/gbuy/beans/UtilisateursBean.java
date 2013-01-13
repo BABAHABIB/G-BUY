@@ -10,14 +10,17 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -84,7 +87,10 @@ public class UtilisateursBean {
                             }
                         }
                         try {
-                            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+                            ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+                            HttpSession session = (HttpSession) eContext.getSession(true);
+                            session.setAttribute("user", user);
+                            eContext.redirect("index.xhtml");
                         } catch (IOException ex) {
                             Logger.getLogger(UtilisateursBean.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -96,7 +102,7 @@ public class UtilisateursBean {
                 }
             }
         } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Remplire touts les champs !", "Remplire touts les champs !"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Lire et accepter nos conditions svp !", "Lire et accepter nos conditions svp !"));
         }
 
         return null;
@@ -114,8 +120,18 @@ public class UtilisateursBean {
             try {
                 Gson gson = new Gson();
                 user = gson.fromJson(response, Utilisateur.class);
+
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Success", " Bienvenu " + user.getNom()));
-                FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+
+                ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+                HttpSession session = (HttpSession) eContext.getSession(true);
+                session.setAttribute("user", user);
+
+                if (user.getType() != null && user.getType().equals("ADMIN")) {
+                    eContext.redirect("admin/Administration.xhtml");
+                } else {
+                    eContext.redirect("index.xhtml");
+                }
             } catch (IOException ex) {
                 Logger.getLogger(UtilisateursBean.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -123,6 +139,86 @@ public class UtilisateursBean {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Login ou mot de passe incorrecte !", "Login ou mot de passe incorrecte !"));
         }
         return null;
+    }
+
+    public String loginForCommande(ActionEvent event) throws IOException {
+        String response = null;
+        try {
+
+            response = client.findByEmailPassword_JSON(String.class, user.getEmail(), user.getPassword());
+            client.close();
+        } catch (Exception e) {
+        }
+        if (response != null) {
+
+            Gson gson = new Gson();
+            user = gson.fromJson(response, Utilisateur.class);
+            ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+            HttpSession session = (HttpSession) eContext.getSession(true);
+            session.setAttribute("user", user);
+
+            eContext.redirect("commander.xhtml");
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "Login ou mot de passe incorrecte !", "Login ou mot de passe incorrecte !"));
+        }
+        return null;
+    }
+
+    public boolean estConnecter() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        if (session.getAttribute("user") != null) {
+            return true;
+        }
+        return false;
+
+    }
+
+    public boolean estAdmin() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        if (session.getAttribute("user") != null) {
+            Utilisateur usr = (Utilisateur) session.getAttribute("user");
+            if (usr.getType() != null && usr.getType().equals("ADMIN")) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public Integer getUserId() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        if (session.getAttribute("user") != null) {
+            Utilisateur usr = (Utilisateur) session.getAttribute("user");
+            return usr.getIdutilisateur();
+        }
+        return null;
+    }
+
+    public Utilisateur getConnecteduser() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        if (session.getAttribute("user") != null) {
+            return (Utilisateur) session.getAttribute("user");
+        }
+        return null;
+    }
+
+    public String getUserFullName() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        if (session.getAttribute("user") != null) {
+            Utilisateur usr = (Utilisateur) session.getAttribute("user");
+            return usr.getPrenom().toUpperCase(Locale.FRENCH) + " " + usr.getNom().toUpperCase();
+        }
+        return null;
+    }
+
+    public String deconnexion() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        eContext.invalidateSession();
+        return "deconnexion";
     }
 
     public Utilisateur getUser() {

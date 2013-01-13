@@ -9,7 +9,7 @@ and open the template in the editor.
       class="no-js"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:m="http://code.google.com/p/gmaps4jsf/"
-      >
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
     <h:head>
         <title>G-BUY</title>
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
@@ -33,111 +33,92 @@ and open the template in the editor.
     </h:head>
     <h:body>
         <ui:include src="commun/header.xhtml" />
+        <ui:include src="commun/rightArticles.xhtml" />
         <section role="banner">
             <hgroup>
                 <h1>G-BUY CASSE LES PRIX !!!</h1>
-
             </hgroup>
+
             <article role="main" class="clearfix">
                 <div class="post">
-                    <h2><h:outputText value="#{jourDealBean.dealDuJour.titre}" /></h2>
-                    <p><a href="#"><b>>><h:outputText value="#{jourDealBean.dealDuJour.categorie.nom}" /></b></a></p>
-                    <div id="desc" class="col_6">
+                    <h2><h:outputText value="#{bestDealBean.dealDuJour.titre}" /></h2>
+                    <p><a href="#"><b>>><h:outputText value="#{bestDealBean.dealDuJour.categorie.nom}" /></b></a></p>
+                    <div  class="col_7">
                         <p>
                             <h3>L'offre</h3>
-                            <h:outputText value="#{jourDealBean.dealDuJour.description}" />
+                            <h:outputText value="#{bestDealBean.dealDuJour.description}" />
                         </p>
                         <p>
                             <h3>Condition</h3>
-                            <h:outputText value="#{jourDealBean.dealDuJour.conditions}" />
+                            <h:outputText value="#{bestDealBean.dealDuJour.conditions}" />
                         </p>
+
                         <p>
-                            <h3>Date d'expiration</h3>
-                            <h:outputText value="#{jourDealBean.dealDuJour.dateExp}" />
-                        </p>
-                    </div>
-                    <div id="count" class="col_6">
-                        <p><h2>Prix :  <h:outputText value="#{jourDealBean.dealDuJour.prix}" /></h2></p>
-                        <p>
-                            <h3 style="color: red;"><strike>Prix Habitule : <h:outputText value="#{jourDealBean.dealDuJour.prixHabituel}" /> </strike></h3>                          
-                        </p>
-                        <p>
-                            <h5>Pour profiter de ce deal, il vous reste :</h5>   
-                            <h:outputText value="#{jourDealBean.dealDuJour.heurexp}" /> H 
-                            <h:outputText value="#{jourDealBean.dealDuJour.minutesexp}" /> MIN
-                        </p>
-                    </div>
-                    <div class="clear"></div>
-                    <div>
-                        <p>
-                            <h3>Prestataire : <h:outputText value="#{jourDealBean.dealDuJour.prestataire.nom}" /></h3>
+                            <h3>Prestataire : <h:outputText value="#{bestDealBean.dealDuJour.prestataire.nom}" /></h3>
                             <ul>
-                                <li> <h:outputText value="#{jourDealBean.dealDuJour.prestataire.description}" /></li>
-                                <li> <h:outputText value="#{jourDealBean.dealDuJour.prestataire.adresse}" /></li>
-                                <li>  <h:outputText value="#{jourDealBean.dealDuJour.prestataire.pays}" /></li>
+                                <li> <h:outputText value="#{bestDealBean.dealDuJour.prestataire.description}" /></li>
+                                <li> <h:outputText value="#{bestDealBean.dealDuJour.prestataire.adresse}" /></li>
+                                <li>  <h:outputText value="#{bestDealBean.dealDuJour.prestataire.pays}" /></li>
                             </ul>
                         </p>
-                    </div>
 
-                    <a href="page.html" class="button left">ACHETER</a>
-                </div>
+                    </div>
+                    <div class="col_5">
+                        <h2>Prix <h:outputText value="#{bestDealBean.dealDuJour.prix}" /></h2>   
+                        <h4 style="color: red;"><strike>Prix Habitule : <h:outputText value="#{bestDealBean.dealDuJour.prixHabituel}" /></strike></h4>                          
+                        <h4 class="center" style="background-color: #6DB9FF; border: 2px #444 solid;">Remise <h:outputText value="#{bestDealBean.dealDuJour.prixHabituel - bestDealBean.dealDuJour.prix}" /></h4>                  
+                        <h4 class="center" style="background-color: #fe57a1; border: 2px #444 solid;">Economie <h:outputText value="#{bestDealBean.dealDuJour.prix * 100 / bestDealBean.dealDuJour.prixHabituel} %" /></h4>
+                        <c:if test="#{bestDealBean.aCadeau()}" >
+                            <div id="cadeau">
+                                <h:graphicImage name="cadeau.jpg" library="images" width="80px" height="50px" class="align-left" />
+                                <p>
+                                    CE DEAL VOUS OFFRE <br/>
+                                    <h:outputText value="#{bestDealBean.dealDuJour.cadeau}" />
+                                    <br/>
+                                    DE BON D'ACHAT
+                                </p>
+                            </div>
+                        </c:if>
+
+
+
+                    </div>
+                    <div class="clear"></div>
+                     <h:form>
+                        <h:commandLink value="JE PROFITE" class="button left" action="#{commander.afficherDeatailCommande(bestDealBean.dealDuJour.iddeal)}" />
+                    </h:form>
+                </div>        
                 <aside role="complementary">
                     <a href="#demo-url"><h:graphicImage name="hotel.jpg" library="images" /></a>
+                </aside>
+                <aside role="complementary">
                     <h:form id="map">
-                        <m:map width="400px" height="200px" zoom="15" address="#{jourDealBean.dealDuJour.ville}+ #{jourDealBean.dealDuJour.adresse}" />
+                        <m:map width="400px" height="100px" zoom="15" address="#{bestDealBean.dealDuJour.ville}+ #{bestDealBean.dealDuJour.adresse}" />
                     </h:form>
                 </aside>
-
+                <aside role="complementary">
+                    <p><center>
+                            <h3>Déjà <h:outputText value="#{dealTraitementBean.nbrAcheteurDuDeal(bestDealBean.dealDuJour.iddeal) }" /> Acheteurs</h3>                          
+                        </center> </p>
+                </aside>
+                <aside role="complementary">
+                    <p class="center">
+                        <center>
+                            <h3>Ce Deal Expire le :</h3>
+                            <h3>
+                                <h:outputText value="#{bestDealBean.dealDuJour.dateExp}" /> à
+                                <h:outputText value="#{bestDealBean.dealDuJour.heurexp}" /> H 
+                                <h:outputText value="#{bestDealBean.dealDuJour.minutesexp}" /> MIN
+                            </h3>    
+                        </center>
+                    </p>
+                </aside>
             </article>
 
         </section> <!-- // banner ends -->
         <section class="container">
-
-            <div class="columns">
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Micro-formatted HTML5</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <a href="#">volutpat vitae nisi.</a> Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/sports/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Responsive</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/people/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Pure CSS3</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <strong>volutpat vitae nisi. Nulla luctus</strong> lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/nightlife/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Browser compatible</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div> <!-- //.columns -->
-            <ul class="thumb-rotator">
-                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
-            </ul>
+            <ui:include src="commun/nouveauxDeals.xhtml" />
+            <ui:include src="commun/dealsPlusCommande.xhtml" />   
 
         </section>
 

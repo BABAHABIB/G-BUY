@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      class="no-js"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>G-BUY</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+
+        <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="commun/header.xhtml" />
+        <section role="banner">
+            <hgroup>
+                <h1> ERREUR D'ACCES !!!</h1>
+            </hgroup>
+
+            <article role="main" class="clearfix">
+                <div class="post">
+                    <h2>Erreur :(</h2>
+
+                    <h:form>
+                        Vous n'avez pas le droit pour acceder a cet page, Aller vers  <h:commandLink value="HOME" action="index.html?redirect=true" />
+                    </h:form>
+                </div>
+            </article>
+        </section>
+        <section class="container">
+            <ui:include src="commun/nouveauxDeals.xhtml" />
+
+            <ul class="thumb-rotator">
+                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
+                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
+            </ul>
+
+        </section>
+
+        <ui:include src="commun/footer.xhtml" />
+
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>

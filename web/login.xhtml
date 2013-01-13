@@ -13,7 +13,7 @@ and open the template in the editor.
         <title>G-BUY::Loing</title>
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
-       
+
         <h:outputStylesheet name="kickstart-forms.css" library="css" />
         <h:outputStylesheet name="kickstart-grid.css" library="css"/>
         <h:outputStylesheet name="style.css" library="css"/>
@@ -27,13 +27,12 @@ and open the template in the editor.
 
         <section role="banner">
             <hgroup>
-                <h1>An HTML5/CSS3 powered website that contains very less images</h1>
-                <h2>Even the icons used are texts icons, easier to use/customize and load page faster.</h2>
+                <h1>Bienvenu sur G-BUY Connecté vous et profiter des meilleurs deals a un prix de choc</h1>
             </hgroup>
             <article role="main" class="clearfix">
                 <div class="post">
                     <h2>Connectez vous</h2>
-                    <p>Vous n'avez pas de compte? <a href="#">inscription rapide</a></p>
+                    <p>Vous n'avez pas de compte? <a href="register.xhtml">Inscription rapide</a></p>
 
                     <h:form class="c-form">
                         <p:messages id="messages"  autoUpdate="true" closable="true" />  
@@ -52,51 +51,9 @@ and open the template in the editor.
             </article>
         </section> <!-- // banner ends -->
         <section class="container">
-            <div class="columns">
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Micro-formatted HTML5</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <a href="#">volutpat vitae nisi.</a> Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/sports/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Responsive</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/people/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Pure CSS3</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <strong>volutpat vitae nisi. Nulla luctus</strong> lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more</a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/nightlife/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Browser compatible</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more</a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div> <!-- //.columns -->
-            <ul class="thumb-rotator">
-                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
-            </ul>
+            <ui:include src="commun/dealsPlusCommande.xhtml" />
+
+          
         </section>
 
         <ui:include src="commun/footer.xhtml" />

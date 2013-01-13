@@ -14,18 +14,18 @@ and open the template in the editor.
         <title>G-BUY::Inscription</title>
         <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
         <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
-        
+
         <h:outputStylesheet name="kickstart-forms.css" library="css" />
         <h:outputStylesheet name="kickstart-grid.css" library="css"/>
         <h:outputStylesheet name="style.css" library="css"/>
         <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
         <h:outputStylesheet name="main.css" library="css"/>
-        
+
         <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
     </h:head>
     <h:body>
         <ui:include src="commun/header.xhtml" />
-        
+
         <section role="banner">
             <hgroup>
                 <h1>Créer Votre COMPTE et profiter de nos offres impressionantes</h1>
@@ -46,7 +46,7 @@ and open the template in the editor.
                         <h:inputText value="#{utilisateurBean.user.prenom}" id="Prenom" validatorMessage="Enter votre prenom" />
                         <h:outputLabel value="E-Mail *" for="EMail"/>
                         <h:inputText value="#{utilisateurBean.user.email}" id="EMail"  validatorMessage="Entrer un EMail valide">
-                        <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
                         </h:inputText>
                         <h:outputLabel value="Mot de passe *" for="pwd1"/>
                         <h:inputSecret id="pwd1" value="#{utilisateurBean.password1}"  />                 
@@ -76,51 +76,7 @@ and open the template in the editor.
         </section> <!-- // banner ends -->
         <section class="container">
 
-            <div class="columns">
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/technics/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Micro-formatted HTML5</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <a href="#">volutpat vitae nisi.</a> Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/sports/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Responsive</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/people/" alt="Lorem ipsum dolor..." />
-                        <figcaption>
-                            <h3>Pure CSS3</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, <strong>volutpat vitae nisi. Nulla luctus</strong> lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-                <article>
-                    <figure>
-                        <img src="http://lorempixel.com/210/140/nightlife/" alt="Lorem ipsum dolor..." class="alt-col" />
-                        <figcaption>
-                            <h3>Browser compatible</h3>
-                            <p>Pellentesque mi arcu, sollicitudin vel malesu, volutpat vitae nisi. Nulla luctus lacus at tortor blandit semper. Donec gravida aliquet urna, eu pulvinar ligula pellentesque ornare. <a href="#" class="more-link">Read more </a></p>
-                        </figcaption>
-                    </figure>
-                </article>
-            </div> <!-- //.columns -->
-            <ul class="thumb-rotator">
-                <li><a href=""><img src="http://flickholdr.com/165/65/logo" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/brand" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/apple" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/nike" alt="" /></a></li>
-                <li><a href=""><img src="http://flickholdr.com/165/65/levi" alt="" /></a></li>
-            </ul>
+          
 
         </section>
         <ui:include src="commun/footer.xhtml"/>

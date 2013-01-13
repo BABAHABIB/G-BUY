@@ -3,9 +3,96 @@
 <!-- =========== FULL CONFIGURATION FILE ================================== -->
 
 <faces-config version="2.1"
-    xmlns="http://java.sun.com/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
-
-
+              xmlns="http://java.sun.com/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
+    <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <from-outcome>searchsuccess</from-outcome>
+            <to-view-id>/resultat.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>login</from-outcome>
+            <to-view-id>/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>register</from-outcome>
+            <to-view-id>/register.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>deconnexion</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>administration</from-outcome>
+            <to-view-id>/admin/Administration.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>hotel</from-outcome>
+            <to-view-id>/hotel.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>voyage</from-outcome>
+            <to-view-id>/voyage.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+        <navigation-case>
+            <from-outcome>restauration</from-outcome>
+            <to-view-id>/restauration.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>detaildeal</from-outcome>
+            <to-view-id>/detail.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+    </navigation-rule>
+    
+     <navigation-rule>
+        <from-view-id>/*</from-view-id>
+        <navigation-case>
+            <from-outcome>preparercommande</from-outcome>
+            <to-view-id>/paiment/commander.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+         <navigation-case>
+            <from-outcome>loginforCommande</from-outcome>
+            <to-view-id>/auth.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+     </navigation-rule>
+     
+     <navigation-rule>
+        <from-view-id>/paiment/commander.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>paiement</from-outcome>
+            <to-view-id>/paiment/paiement.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        
+     </navigation-rule>
+     
 </faces-config>

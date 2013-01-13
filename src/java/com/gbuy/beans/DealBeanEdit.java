@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -25,30 +26,27 @@ import javax.faces.context.FacesContext;
  *
  * @author yassine
  */
-
-@ManagedBean(name="beanedit")
+@ManagedBean(name = "beanedit")
 @SessionScoped
 public class DealBeanEdit {
-        private Prestataire prestataire;
+
+    private Prestataire prestataire;
     private PrestataireClient prestataireclient;
     private List<Prestataire> listprestataire;
-    
     FacesContext context = FacesContext.getCurrentInstance();
-   
     private DealsClient dealclient;
     private Deal deal;
     private UIParameter id_deal;
     private List<Deal> listDeal;
-    private JsonParser parser;   
+    private JsonParser parser;
     private Integer prestataireselected;
     private Categorie categorie;
     private CategorieClient categorieclient;
     private List<Categorie> listcategorie;
     private Integer categorieselected;
-       
-    
+
     public DealBeanEdit() {
-            
+
         deal = new Deal();
         prestataire = new Prestataire();
         categorie = new Categorie();
@@ -57,12 +55,13 @@ public class DealBeanEdit {
         listprestataire = new ArrayList<Prestataire>();
         categorieclient = new CategorieClient();
         prestataireclient = new PrestataireClient();
-       parser = new JsonParser();
+        parser = new JsonParser();
         remplirelist();
-      
+
     }
-    public void remplirelist(){
-          // ----liste des prestataires------------
+
+    private void remplirelist() {
+        // ----liste des prestataires------------
         String reponseprestataire = prestataireclient.findAll_JSON(String.class);
         JsonObject jsonPrestataires = (JsonObject) parser.parse(reponseprestataire);
         JsonArray jsonArrayPrestataires = (JsonArray) jsonPrestataires.get("prestataire");
@@ -72,7 +71,7 @@ public class DealBeanEdit {
             listprestataire.add(p);
         }
 
-       //--------Lsit des Categories------------
+        //--------Lsit des Categories------------
         categorieclient = new CategorieClient();
         String reponseCategorie = categorieclient.findAll_JSON(String.class);
         categorieclient.close();
@@ -83,7 +82,7 @@ public class DealBeanEdit {
             Categorie c = (Categorie) gcategorie.fromJson(jsonArraycategorie.get(i), Categorie.class);
             listcategorie.add(c);
         }
-           //-----Liste des Deals--------
+        //-----Liste des Deals--------
         dealclient = new DealsClient();
         String reponseDeal = dealclient.findAll_JSON(String.class);
         dealclient.close();
@@ -95,29 +94,25 @@ public class DealBeanEdit {
             listDeal.add(d);
         }
     }
-    
-    
 
-    
-       public String doeditDeal() {
- 
+    public void doeditDeal() throws IOException {
+
         dealclient = new DealsClient();
         Gson gson = new Gson();
         System.out.println(gson.toJson(deal));
         dealclient.edit_JSON(gson.toJson(deal));
-        dealclient.close();      
+        dealclient.close();
         System.out.println("DoModifier");
-        return "Administration.xhtml";
-}
-       
-        public String modifier() {
+        FacesContext.getCurrentInstance().getExternalContext().redirect("gestionDeal.xhtml");
+    }
+
+    public void modifier() throws IOException {
         for (Deal d : listDeal) {
             if (d.getIddeal() == Integer.parseInt(id_deal.getValue().toString())) {
                 deal = d;
-                return "edit_Deal.xhtml";
-            }         
+                FacesContext.getCurrentInstance().getExternalContext().redirect("edit_Deal.xhtml");
+            }
         }
-        return null;
     }
 
     public Deal getDeal() {
@@ -183,6 +178,4 @@ public class DealBeanEdit {
     public void setCategorieselected(Integer categorieselected) {
         this.categorieselected = categorieselected;
     }
-
-
 }

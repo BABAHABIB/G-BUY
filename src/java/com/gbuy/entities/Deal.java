@@ -32,6 +32,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Deal.findAll", query = "SELECT d FROM Deal d")})
 public class Deal implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -335,5 +336,4 @@ public class Deal implements Serializable {
     public String toString() {
         return "com.gbuy.entities.Deal[ iddeal=" + iddeal + " ]";
     }
-    
 }

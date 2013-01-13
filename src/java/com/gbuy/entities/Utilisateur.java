@@ -33,6 +33,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Utilisateur.findAll", query = "SELECT u FROM Utilisateur u")})
 public class Utilisateur implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -277,7 +278,6 @@ public class Utilisateur implements Serializable {
 
     @Override
     public String toString() {
-        return "com.gbuy.entities.Utilisateur[ idutilisateur=" + idutilisateur + " ]";
+        return "com.gbuy.entities.Utilisateur[ idutilisateur=" + idutilisateur + " type= " + type+  "]";
     }
-    
 }

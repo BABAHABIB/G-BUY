@@ -22,6 +22,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -50,13 +53,13 @@ public class CommandeBean {
         dealclient = new DealsClient();
         idDeal = "1";
         findDealById();
-        commande=new Commande();
-        iduser=1;
-        user=new Utilisateur();
-        userclient=new UtilisateurClient();
-        bonachat=new BonAchat();
-        bonachatclient=new BonAchatClient();
-       
+        commande = new Commande();
+        iduser = 1;
+        user = new Utilisateur();
+        userclient = new UtilisateurClient();
+        bonachat = new BonAchat();
+        bonachatclient = new BonAchatClient();
+
         findbonachatsbyiduser();
 
 
@@ -70,8 +73,6 @@ public class CommandeBean {
         this.bonachat = bonachat;
     }
 
-    
-    
     public void setBonachats(ArrayList<BonAchat> bonachats) {
         this.bonachats = bonachats;
     }
@@ -79,9 +80,8 @@ public class CommandeBean {
     public ArrayList<BonAchat> getBonachats() {
         return bonachats;
     }
-    
-    
-    private void findDealById(){
+
+    private void findDealById() {
         String reponse = dealclient.find_JSON(String.class, idDeal);
         //System.out.println(reponse);
         Gson gson = new Gson();
@@ -95,63 +95,67 @@ public class CommandeBean {
     public void setDeal(Deal deal) {
         this.deal = deal;
     }
-    
-    private void findbonachatsbyiduser(){
-    String reponsebonachat=bonachatclient.findByUserid_JSON(String.class, "1");
-    Gson gsonbon = new Gson();
-    //System.out.println(reponsebonachat.toString());
-    
-    JsonParser parser = new JsonParser();
-    JsonObject jObject = parser.parse(reponsebonachat).getAsJsonObject();
-    JsonArray jArray = jObject.getAsJsonArray("bonAchat");
-                
-              //  System.out.println(jArray.toString());
-                for (JsonElement elem : jArray) {
-                    bonachats.add(gsonbon.fromJson(elem, BonAchat.class));
-                }
-              //  System.out.println("Bon Achat utilisateur List" + bonachats.toString());
-                
-                
-                
+
+    private void findbonachatsbyiduser() {
+        ExternalContext eContext = FacesContext.getCurrentInstance().getExternalContext();
+        HttpSession session = (HttpSession) eContext.getSession(true);
+        Utilisateur usr = (Utilisateur) session.getAttribute("user");
+        try {
+            String reponsebonachat = bonachatclient.findByUserid_JSON(String.class, usr.getIdutilisateur().toString());
+            Gson gsonbon = new Gson();
+            //System.out.println(reponsebonachat.toString());
+
+            JsonParser parser = new JsonParser();
+            JsonObject jObject = parser.parse(reponsebonachat).getAsJsonObject();
+            JsonArray jArray = jObject.getAsJsonArray("bonAchat");
+
+            //  System.out.println(jArray.toString());
+            for (JsonElement elem : jArray) {
+                bonachats.add(gsonbon.fromJson(elem, BonAchat.class));
+            }
+        } catch (Exception e) {
+        }
+        //  System.out.println("Bon Achat utilisateur List" + bonachats.toString());
+
+
+
     }
-    
-    public void construirebonachatchoisi(){
-    bonachatchoisi=new BonAchat();
-    bonachatclientchoisi=new BonAchatClient();
-    
-     String reponsebonachatchoisi=bonachatclientchoisi.find_JSON(String.class, bonachat.getIdbonAchat().toString());
-     Gson gsonchoisi=new Gson();
-     bonachatchoisi = gsonchoisi.fromJson(reponsebonachatchoisi, BonAchat.class);
-    
+
+    public void construirebonachatchoisi() {
+        bonachatchoisi = new BonAchat();
+        bonachatclientchoisi = new BonAchatClient();
+
+        String reponsebonachatchoisi = bonachatclientchoisi.find_JSON(String.class, bonachat.getIdbonAchat().toString());
+        Gson gsonchoisi = new Gson();
+        bonachatchoisi = gsonchoisi.fromJson(reponsebonachatchoisi, BonAchat.class);
+
     }
-    
-    public void finduserbyiduser(String iduser){
-    
-    String reponseuser=userclient.find_JSON(String.class, iduser.toString());
-     Gson gsonuser = new Gson();
+
+    public void finduserbyiduser(String iduser) {
+
+        String reponseuser = userclient.find_JSON(String.class, iduser.toString());
+        Gson gsonuser = new Gson();
         user = gsonuser.fromJson(reponseuser, Utilisateur.class);
     }
-    
-    public void addcommandeconnecte(){
-    
-        
+
+    public void addcommandeconnecte() {
+
+
         commande.setIddeal(deal);
         commande.setIdutilisateur(user);
-    
-    
-    commande.setIdbonAchat(bonachatchoisi);
-    DateFormat dateformat=new SimpleDateFormat("dd-MM-YYYY");
-    String datee=dateformat.format(new Date());
-    commande.setDate(datee);
-    
-    System.out.println(commande.toString());
-    
-    
+
+
+        commande.setIdbonAchat(bonachatchoisi);
+        DateFormat dateformat = new SimpleDateFormat("dd-MM-YYYY");
+        String datee = dateformat.format(new Date());
+        commande.setDate(datee);
+
+        System.out.println(commande.toString());
+
+
     }
-    
-    
-    public void addcommandenonconnecte(){
-    commande.setIddeal(deal);  
+
+    public void addcommandenonconnecte() {
+        commande.setIddeal(deal);
     }
-    
 }

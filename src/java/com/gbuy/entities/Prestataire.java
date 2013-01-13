@@ -28,6 +28,7 @@ import javax.validation.constraints.Size;
 @NamedQueries({
     @NamedQuery(name = "Prestataire.findAll", query = "SELECT p FROM Prestataire p")})
 public class Prestataire implements Serializable {
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -179,5 +180,4 @@ public class Prestataire implements Serializable {
     public String toString() {
         return "com.gbuy.entities.Prestataire[ idprestataire=" + idprestataire + " ]";
     }
-    
 }

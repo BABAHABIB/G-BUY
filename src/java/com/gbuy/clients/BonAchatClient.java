@@ -10,8 +10,7 @@ import com.sun.jersey.api.client.WebResource;
 
 /**
  * Jersey REST client generated for REST resource:BonAchatFacadeREST
- * [bonachats]<br>
- *  USAGE:
+ * [bonachats]<br> USAGE:
  * <pre>
  *        BonAchatClient client = new BonAchatClient();
  *        Object response = client.XXX(...);
@@ -22,6 +21,7 @@ import com.sun.jersey.api.client.WebResource;
  * @author Sony
  */
 public class BonAchatClient {
+
     private WebResource webResource;
     private Client client;
     private static final String BASE_URI = "http://localhost:8080/G-BUY-REST/webresources";
@@ -107,5 +107,4 @@ public class BonAchatClient {
     public void close() {
         client.destroy();
     }
-    
 }

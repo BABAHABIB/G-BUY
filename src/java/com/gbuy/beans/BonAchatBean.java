@@ -9,5 +9,4 @@ package com.gbuy.beans;
  * @author Sony
  */
 public class BonAchatBean {
-    
 }

@@ -147,6 +147,18 @@ public class DealsClient {
         return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 
+    public <T> T findUserCollectionByIdDeal_XML(Class<T> responseType, String iddeal) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("users/{0}", new Object[]{iddeal}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
+
+    public <T> T findUserCollectionByIdDeal_JSON(Class<T> responseType, String iddeal) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("users/{0}", new Object[]{iddeal}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+    }
+
     public <T> T search_XML(Class<T> responseType, String tags) throws UniformInterfaceException {
         WebResource resource = webResource;
         resource = resource.path(java.text.MessageFormat.format("search/{0}", new Object[]{tags}));
@@ -156,6 +168,18 @@ public class DealsClient {
     public <T> T search_JSON(Class<T> responseType, String tags) throws UniformInterfaceException {
         WebResource resource = webResource;
         resource = resource.path(java.text.MessageFormat.format("search/{0}", new Object[]{tags}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+    }
+
+    public <T> T findCommandeCollectionByIdDeal_XML(Class<T> responseType, String iddeal) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("commandes/{0}", new Object[]{iddeal}));
+        return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_XML).get(responseType);
+    }
+
+    public <T> T findCommandeCollectionByIdDeal_JSON(Class<T> responseType, String iddeal) throws UniformInterfaceException {
+        WebResource resource = webResource;
+        resource = resource.path(java.text.MessageFormat.format("commandes/{0}", new Object[]{iddeal}));
         return resource.accept(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
     }
 

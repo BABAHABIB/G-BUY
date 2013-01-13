@@ -15,14 +15,14 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 /**
  *
  * @author Anas
  */
 @ManagedBean(name = "search")
-@RequestScoped
+@SessionScoped
 public class RechercherBean {
 
     @EJB
@@ -47,11 +47,12 @@ public class RechercherBean {
                 JsonParser parser = new JsonParser();
                 JsonObject jObject = parser.parse(reponse).getAsJsonObject();
                 JsonArray jArray = jObject.getAsJsonArray("deal");
+                deals.clear();
                 for (JsonElement elem : jArray) {
                     deals.add(g.fromJson(elem, Deal.class));
                 }
-                System.out.println("Deals List" + deals.toString());
-                return "success";
+                //System.out.println("Deals List" + deals.toString());
+                return "searchsuccess";
             }
         }
         return null;

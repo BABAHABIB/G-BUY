@@ -21,10 +21,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.bean.SessionScoped;
 import javax.faces.component.UIParameter;
 import javax.faces.context.FacesContext;
-
+import org.primefaces.model.UploadedFile; 
 
 /**
  *
@@ -34,7 +33,6 @@ import javax.faces.context.FacesContext;
 @RequestScoped
 public class DealBean {
 
-    
     private Deal deal;
     private DealsClient dealclient;
     private List<Deal> listDeal;
@@ -51,9 +49,7 @@ public class DealBean {
     private CategorieClient categorieclient;
     private List<Categorie> listcategorie;
     private Integer categorieselected;
-    
-    
-
+    private UploadedFile  image;
 
     public DealBean() {
         deal = new Deal();
@@ -75,19 +71,23 @@ public class DealBean {
         this.deal = deal;
     }
 
-    public String addDeal() {
+    public void addDeal() {
 
+        if (image != null) {
+             System.out.println("Image :");
+            System.out.println(image.getFileName());
+        }
         for (Categorie c : listcategorie) {
-            if (c.getIdcategorie() == categorieselected ) {
+            if (c.getIdcategorie() == categorieselected) {
                 deal.setCategorie(c);
                 System.out.println("IdCategorie : ");
                 System.out.println("IdCategorie : " + c.getIdcategorie());
             }
         }
-         for (Prestataire p : listprestataire) {
+        for (Prestataire p : listprestataire) {
             if (p.getIdprestataire() == prestataireselected) {
-               deal.setPrestataire(p);   
-            }         
+                deal.setPrestataire(p);
+            }
         }
 
         Gson gson = new Gson();
@@ -95,8 +95,12 @@ public class DealBean {
         System.out.println(gson.toJson(deal));
         dealclient.create_JSON(gson.toJson(deal));
         dealclient.close();
-        return "gestionDeal.xhtml";
 
+        try {
+            context.getExternalContext().redirect("gestionDeal.xhtml");
+        } catch (IOException ex) {
+            Logger.getLogger(DealBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     private void inite() {
@@ -160,8 +164,6 @@ public class DealBean {
         return listDeal;
     }
 
-
-
     public void supprimerDeal() {
         dealclient = new DealsClient();
         dealclient.remove(id_deal.getValue().toString());
@@ -196,7 +198,12 @@ public class DealBean {
     public void setId_deal(UIParameter id_deal) {
         this.id_deal = id_deal;
     }
-    
-    
-    
+
+    public UploadedFile getImage() {
+        return image;
+    }
+
+    public void setImage(UploadedFile image) {
+        this.image = image;
+    }
 }
