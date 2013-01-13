@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      class="no-js"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>G-BUY::Inscription</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="../commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>G-BUY casse les prix</h1>
+
+            </hgroup>
+
+            <article role="main" class="clearfix">
+                <div class="poster">
+                    <h2>PAIMENT</h2>
+                    <hr/>
+
+                    <h:form>
+                       <p:growl id="growl" showDetail="true" sticky="true" />  
+                        <input id="creditcard_radio" class="radio paymentChoose " type="radio" onclick="switchPaymentType('creditcard')" checked="checked" name="pt"/>
+                        <h:outputLabel class="paymentChoose" for="creditcard_radio" value="Carte de crédit"/>
+                        <input type="image" alt="icon" src="https://static.groupon.fr/app/s/cdn2285279230/images/icons/pico_creditcard.gif"/>
+                        <div id="jPaymentDetails_creditcard" class="details" style="display: block;">
+                            <h:outputLabel for="pn.cc.number1" value="Numéro de la carte de crédit"/>
+                            <div class="paymentDetailsCcMultipleContainer">
+                                <input id="pn.cc.number"  class="jCCNumberHidden" type="hidden" value="" name="pn.cc.number"/>
+                                <input id="pn.cc.number1" class="text paymentDetailsCc jCCNumber jFirst" type="text" autocomplete="off" maxlength="4" width="50"/>
+                                <input id="pn.cc.number2" class="text paymentDetailsCc jCCNumber" type="text" autocomplete="off" maxlength="4" />
+                                <input id="pn.cc.number3" class="text paymentDetailsCc jCCNumber" type="text" autocomplete="off" maxlength="4"/>
+                                <input id="pn.cc.number4" class="text paymentDetailsCc jCCNumber jLast" type="text" autocomplete="off" maxlength="4"/>
+                            </div>
+                            <h:outputLabel for="jpn.cc.sec.code"/>
+                            Cryptogramme
+                            <div id="tt_MasterCardTT1" class=" Cvc jToolTipCVV gotToolTip ico iconInfoSmall"></div>
+                            <input id="jpn.cc.sec.code" class="text paymentDetailsCc" type="text" autocomplete="off" name="pn.cc.sec.code" maxlength="3"/>
+                            <br/>
+                            <label> Expire fin</label>
+                            <br/>
+                            <h:selectOneMenu label="Type">  
+                                <f:selectItem itemLabel ="Janvier" itemValue="0" />  
+                                <f:selectItem itemLabel ="Février" itemValue="1" />  
+                                <f:selectItem itemLabel="Mars" itemValue="2" />  
+                                <f:selectItem itemLabel="Avril" itemValue="3" />  
+                                <f:selectItem itemLabel="Mai" itemValue="4" />  
+                                <f:selectItem itemLabel="Juin" itemValue="5" />  
+                                <f:selectItem itemLabel="Juillet" itemValue="6" />  
+                                <f:selectItem itemLabel="Août" itemValue="7" />  
+                                <f:selectItem itemLabel="Septembre" itemValue="8" />  
+                                <f:selectItem itemLabel="Octobre" itemValue="9" />  
+                                <f:selectItem itemLabel="Novembre" itemValue="10" /> 
+                                <f:selectItem itemLabel="Décembre" itemValue="11" /> 
+                            </h:selectOneMenu>
+                            <h:outputLabel value=" / " />
+                            <h:selectOneMenu label="Type">  
+                                <f:selectItem itemLabel ="2013" itemValue="0" />  
+                                <f:selectItem itemLabel ="2014" itemValue="1" />  
+                                <f:selectItem itemLabel="2015" itemValue="2" />  
+                                <f:selectItem itemLabel="2016" itemValue="3" />  
+                                <f:selectItem itemLabel="2017" itemValue="4" />  
+                            </h:selectOneMenu>
+                            <br/>
+                            <hr/>
+                            <input id="paypal_radio" class="radio paymentChoose " type="radio" onclick="switchPaymentType('paypal')" name="pt"/>
+                            <label class="paymentChoose" for="paypal_radio">Paypal</label>
+                            <img alt="icon" src="http://www.paypal.com/fr_XC/i/btn/sc-but-01.gif"/>
+                        </div>
+                        <hr/>
+                        <p:commandLink update="growl" actionListener="#{paiment.payer}" styleClass="button left" value="Valider paiement"/>
+                    </h:form>
+                </div>
+            </article>
+        </section> <!-- // banner ends -->
+        <ui:include src="../commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>
