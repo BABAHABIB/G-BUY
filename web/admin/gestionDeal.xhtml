@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>G-BUY::Nouveau Deal</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+          <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="../commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Espace d'administration</h1>
+            </hgroup>
+            <article role="main">
+                <div class="post">
+                    <h2>Gestion des deals</h2>
+                </div>
+
+                <div class="clear">  </div>
+                <h5>
+                    <h:form>
+                        <h:commandLink action="NewDeal.xhtml" >Ajouter un nouveau Deal</h:commandLink> 
+                    </h:form>
+                </h5>
+                <div class="clear">  </div>  
+                <h:form >  
+                    <p:dataTable var="deal" value="#{dealbean.listDeal}"> 
+
+                        <p:column headerText="Titre">  
+                            <h:outputText value="#{deal.titre}" />  
+                        </p:column>  
+
+                        <p:column headerText="Description">  
+                            <h:outputText value="#{deal.description}" />  
+                        </p:column>  
+
+                        <p:column headerText="Date_ajout">  
+                            <h:outputText value="#{deal.dateAjout}" />  
+                        </p:column>  
+
+                        <p:column headerText="Modifier / Supprimer">  
+                            <center>
+                                <p:growl id="growl" showDetail="true" sticky="true" />  
+                                <p:commandButton value="Modifier" action="#{beanedit.modifier()}" >
+                                    <f:param  value="#{deal.iddeal}" binding="#{beanedit.id_deal}" />
+                                </p:commandButton>  /  
+                                <p:commandButton  actionListener="#{dealbean.supprimerDeal()}" update="growl"  value="Supprimer" >
+                                    <f:param  value="#{deal.iddeal}" binding="#{dealbean.id_deal}" />
+                                </p:commandButton>    
+                            </center>
+                        </p:column>  
+
+                    </p:dataTable> 
+
+                </h:form> 
+
+            </article>
+        </section> 
+        <!-- // banner ends -->
+
+        <ui:include src="../commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>  

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      class="no-js"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>G-BUY::Modification</title>
+        <link  href="http://fonts.googleapis.com/css?family=Oswald:regular" rel="stylesheet" type="text/css" />
+        <link href='http://fonts.googleapis.com/css?family=Junge' rel='stylesheet' type='text/css' />
+
+        <h:outputStylesheet name="kickstart.css" library="css"/>
+        <h:outputStylesheet name="kickstart-grid.css" library="css"/>
+        <h:outputStylesheet name="kickstart-forms.css" library="css" />
+        <h:outputStylesheet name="style.css" library="css"/>
+        <h:outputStylesheet name="raphaelicons.css" library="fonts"/>
+        <h:outputStylesheet name="main.css" library="css"/>
+
+        <h:outputScript name="modernizr-2.5.2.min.js" library="js/libs/" />
+    </h:head>
+    <h:body>
+        <ui:include src="../commun/header.xhtml" />
+
+        <section role="banner">
+            <hgroup>
+                <h1>Modifir Un COMPTE </h1>
+
+            </hgroup>
+            <article role="main" class="clearfix">
+                <div class="post">
+                    <h2>Modifier un compte</h2>
+                </div>
+                <h:form method="post" class="c-form"> 
+                    <div class="col_12">
+                        <p:messages id="messages"  autoUpdate="true" closable="true" />  
+                    </div>
+                    <div  class="col_6" >
+                        <h:outputLabel value="Nom *" for="nom"/>
+                        <h:inputText value="#{userbeanedit.user.nom}" id="nom"  validatorMessage="Entrer le nom"  />
+                        <h:outputLabel value="Prenom *" for="Prenom"/>
+                        <h:inputText value="#{userbeanedit.user.prenom}" id="Prenom" validatorMessage="Enter le prenom" />
+                        <h:outputLabel value="E-Mail *" for="EMail"/>
+                        <h:inputText value="#{userbeanedit.user.email}" id="EMail"  validatorMessage="Entrer un EMail valide">
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                        </h:inputText>
+                        <h:outputLabel value="Mot de passe *" for="pwd1"/>
+                        <h:inputSecret id="pwd1" value="#{userbeanedit.password1}"  />                 
+                        <h:outputLabel value="Confirmer *" for="pwd2"/>
+                        <h:inputSecret value="#{userbeanedit.password2}"   id="pwd2"   />
+                    </div>
+                    <div  class="col_6">
+                        <h:outputLabel value="Adresse *" for="Adresse"/>
+                        <h:inputText value="#{userbeanedit.user.adresse}" id="Adresse" validatorMessage="Enter votre adresse"  />
+                        <h:outputLabel value="Ville *" for="Ville"/>
+                        <h:inputText value="#{userbeanedit.user.ville}"  id="Ville" validatorMessage="Enter votre ville"/>
+                        <h:outputLabel value="Pays *" for="Pays"/>
+                        <h:inputText value="#{userbeanedit.user.pays}"  id="Pays"  validatorMessage="Enter votre pays" />
+                        <h:outputLabel value="Code Postal" for="PostCode"/>
+                        <h:inputText value="#{userbeanedit.user.codePostale}"  id="PostCode"  />
+
+                    </div>
+                    <div class="col_12">
+                        <h:outputLabel for="typ" value="Type : "  />
+                        <h:selectOneMenu id="typ"  value="#{userbeanedit.lselected}">
+                            <f:selectItem itemLabel="Choisir un type"  />
+                            <f:selectItems value="#{userbeanedit.l}" var="p" itemValue="#{p.toString()}" itemLabel="#{p.toString()}" >
+                            </f:selectItems>
+                        </h:selectOneMenu>
+
+                        <p>
+                            <p:commandButton update="messages" actionListener="#{userbeanedit.doedituser()}" value="Modifier" styleClass="button green" />
+                        </p>
+                    </div>
+
+                </h:form>
+
+            </article>
+        </section> <!-- // banner ends -->
+
+        <ui:include src="../commun/footer.xhtml"/>
+        <h:outputScript name="libs/jquery-1.7.1.min.js" library="js" />
+        <h:outputScript  name="script.js" library="js" />
+    </h:body>
+</html>
